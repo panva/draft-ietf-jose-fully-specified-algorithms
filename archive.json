@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-30T00:31:04.327883+00:00",
+  "timestamp": "2024-06-02T00:33:58.594015+00:00",
   "repo": "selfissued/draft-ietf-jose-fully-specified-algorithms",
   "labels": [
     {
@@ -459,6 +459,73 @@
           "createdAt": "2024-02-28T19:43:35Z",
           "updatedAt": "2024-02-28T19:43:35Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOKNEhZc5xMpcV",
+      "title": "WLGC Feedback on Encryption Algorithms",
+      "url": "https://github.com/selfissued/draft-ietf-jose-fully-specified-algorithms/pull/8",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR focuses on the WGLC feedback regarding what \"fully specified encryption algorithm identifier\" means.\r\n\r\nThe approach taken is to review the the modes of encryption supported by JOSE and COSE, and comment on the algorithms registered to support those modes, and explain what a fully specified algorithm for each mode would look like.\r\n",
+      "createdAt": "2024-06-01T14:21:34Z",
+      "updatedAt": "2024-06-01T20:33:49Z",
+      "baseRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
+      "baseRefName": "main",
+      "baseRefOid": "67d3751ce5db4eef720d8a90804e326c0f8e8e0e",
+      "headRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
+      "headRefName": "wlgc-encryption-feedback",
+      "headRefOid": "5e641aec8e300258d19efd23680f12b79ee73e4d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKNEhZc58s7Ew",
+          "commit": {
+            "abbreviatedOid": "5381deb"
+          },
+          "author": "selfissued",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-01T17:55:13Z",
+          "updatedAt": "2024-06-01T17:55:14Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Why is the KEMs section now commented out?",
+              "createdAt": "2024-06-01T17:55:14Z",
+              "updatedAt": "2024-06-01T17:55:14Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKNEhZc58s_nH",
+          "commit": {
+            "abbreviatedOid": "5381deb"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-01T20:14:46Z",
+          "updatedAt": "2024-06-01T20:14:46Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "A local editor mistake, as you can see in the latest changes, I've restructured the entire section to focus on the encryption modes that JOSE and COSE support, and explain what fully specified means for each mode.",
+              "createdAt": "2024-06-01T20:14:46Z",
+              "updatedAt": "2024-06-01T20:14:46Z"
+            }
+          ]
         }
       ]
     }
