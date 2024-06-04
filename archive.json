@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-02T00:33:58.594015+00:00",
+  "timestamp": "2024-06-04T00:31:15.949552+00:00",
   "repo": "selfissued/draft-ietf-jose-fully-specified-algorithms",
   "labels": [
     {
@@ -474,7 +474,7 @@
       "labels": [],
       "body": "This PR focuses on the WGLC feedback regarding what \"fully specified encryption algorithm identifier\" means.\r\n\r\nThe approach taken is to review the the modes of encryption supported by JOSE and COSE, and comment on the algorithms registered to support those modes, and explain what a fully specified algorithm for each mode would look like.\r\n",
       "createdAt": "2024-06-01T14:21:34Z",
-      "updatedAt": "2024-06-01T20:33:49Z",
+      "updatedAt": "2024-06-03T19:52:14Z",
       "baseRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
       "baseRefName": "main",
       "baseRefOid": "67d3751ce5db4eef720d8a90804e326c0f8e8e0e",
@@ -526,6 +526,39 @@
               "updatedAt": "2024-06-01T20:14:46Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOKNEhZc582r74",
+          "commit": {
+            "abbreviatedOid": "5e641ae"
+          },
+          "author": "selfissued",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-03T19:45:36Z",
+          "updatedAt": "2024-06-03T19:45:36Z",
+          "comments": [
+            {
+              "originalPosition": 71,
+              "body": "I think we should register a small number of fully-specified encryption algorithms, but I'm OK leaving this text as-is and changing it when we add those registrations.",
+              "createdAt": "2024-06-03T19:45:36Z",
+              "updatedAt": "2024-06-03T19:45:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKNEhZc582uhr",
+          "commit": {
+            "abbreviatedOid": "5e641ae"
+          },
+          "author": "selfissued",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-03T19:52:14Z",
+          "updatedAt": "2024-06-03T19:52:14Z",
+          "comments": []
         }
       ]
     }
