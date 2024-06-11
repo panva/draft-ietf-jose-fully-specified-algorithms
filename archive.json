@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-09T00:35:35.530847+00:00",
+  "timestamp": "2024-06-11T00:31:28.348397+00:00",
   "repo": "selfissued/draft-ietf-jose-fully-specified-algorithms",
   "labels": [
     {
@@ -467,24 +467,26 @@
       "id": "PR_kwDOKNEhZc5xMpcV",
       "title": "WLGC Feedback on Encryption Algorithms",
       "url": "https://github.com/selfissued/draft-ietf-jose-fully-specified-algorithms/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This PR focuses on the WGLC feedback regarding what \"fully specified encryption algorithm identifier\" means.\r\n\r\nThe approach taken is to review the the modes of encryption supported by JOSE and COSE, and comment on the algorithms registered to support those modes, and explain what a fully specified algorithm for each mode would look like.\r\n",
       "createdAt": "2024-06-01T14:21:34Z",
-      "updatedAt": "2024-06-03T19:52:14Z",
+      "updatedAt": "2024-06-10T21:01:34Z",
       "baseRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
       "baseRefName": "main",
       "baseRefOid": "67d3751ce5db4eef720d8a90804e326c0f8e8e0e",
       "headRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
       "headRefName": "wlgc-encryption-feedback",
       "headRefOid": "5e641aec8e300258d19efd23680f12b79ee73e4d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-06-10T21:01:33Z",
+      "mergedAt": "2024-06-10T21:01:33Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "6f2fdca8b4a51300140c07aaec04832eaf6c9834"
+      },
       "comments": [],
       "reviews": [
         {
