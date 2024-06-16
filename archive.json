@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-13T00:31:40.294003+00:00",
+  "timestamp": "2024-06-16T00:34:57.913927+00:00",
   "repo": "selfissued/draft-ietf-jose-fully-specified-algorithms",
   "labels": [
     {
@@ -560,6 +560,86 @@
           "body": "",
           "createdAt": "2024-06-03T19:52:14Z",
           "updatedAt": "2024-06-03T19:52:14Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOKNEhZc5yZRqy",
+      "title": "Spelling, grammar, and terminology corrections",
+      "url": "https://github.com/selfissued/draft-ietf-jose-fully-specified-algorithms/pull/9",
+      "state": "OPEN",
+      "author": "selfissued",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-06-13T17:43:32Z",
+      "updatedAt": "2024-06-13T18:29:17Z",
+      "baseRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
+      "baseRefName": "main",
+      "baseRefOid": "6f2fdca8b4a51300140c07aaec04832eaf6c9834",
+      "headRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
+      "headRefName": "mbj-spelling-grammar-terminology",
+      "headRefOid": "7cd654765a263290e121edae7b1762e8592ad0a2",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKNEhZc5-KPdM",
+          "commit": {
+            "abbreviatedOid": "7cd6547"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-13T18:21:00Z",
+          "updatedAt": "2024-06-13T18:21:00Z",
+          "comments": [
+            {
+              "originalPosition": 184,
+              "body": "I think that this is only partially correct.\r\n\r\nExamples for each case:\r\n\r\n- Key Agreement - https://datatracker.ietf.org/doc/html/rfc7518#appendix-C\r\n- Direct Encryption - https://datatracker.ietf.org/doc/html/rfc7520#section-5.6.3\r\n",
+              "createdAt": "2024-06-13T18:21:00Z",
+              "updatedAt": "2024-06-13T18:21:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKNEhZc5-KQWA",
+          "commit": {
+            "abbreviatedOid": "7cd6547"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-06-13T18:23:07Z",
+          "updatedAt": "2024-06-13T18:23:07Z",
+          "comments": [
+            {
+              "originalPosition": 184,
+              "body": "```suggestion\r\nTo convey a fully-specified Key Establishment (Key Agreement) algorithm, both the \"alg\" and \"enc\" values must be fully-specified, the closest example of this can be found in Appendix C of RFC7518, however the \"alg\" value lacks the explicit curve and key derivation function.\r\nTo convey a fully-specified Direct Encryption algorithm in JOSE, the \"alg\" value MUST be \"dir\",\r\n```",
+              "createdAt": "2024-06-13T18:23:07Z",
+              "updatedAt": "2024-06-13T18:27:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKNEhZc5-KTPY",
+          "commit": {
+            "abbreviatedOid": "7cd6547"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-13T18:29:17Z",
+          "updatedAt": "2024-06-13T18:29:17Z",
           "comments": []
         }
       ]
