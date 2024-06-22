@@ -66,7 +66,7 @@ Table of Contents
    3.  Fully-specified Encryption Algorithm Identifiers
      3.1.  Direct Encryption
      3.2.  Key Establishment and Direct Encryption
-     3.3.  Two Layer Encryption
+     3.3.  Two-Layer Encryption
    4.  IANA Considerations
      4.1.  JOSE Algorithms Registrations
        4.1.1.  Fully-Specified JOSE Algorithm Registrations
@@ -223,11 +223,11 @@ Table of Contents
 
    *  Direct Encryption - A symmetric cryptographic operation.
 
-   *  Key Establishment and Direct Encryption - An assymetric
+   *  Key Establishment and Direct Encryption - An asymmetric
       cryptographic operation to derive a shared secret, key derivation
       and then a symmetric cryptographic operation.
 
-   *  Two Layer Encryption - A content encryption key is protected (many
+   *  Two-Layer Encryption - A content encryption key is protected (many
       possible ways), content encryption and decryption is performed
       using the protected content encryption key.
 
@@ -236,21 +236,21 @@ Table of Contents
    *  The combination of chosen algorithms might not be implemented by
       the receiver.
 
-   *  The combinations of chosen algorithms migth not be aligned in
-      terms of bit strength.
+   *  The combination of chosen algorithms might not be aligned in terms
+      of strength.
 
-   *  Under specified or implicit parameters could lead to exploitable
-      faults in implementations, for example cross curve ECDH between
+   *  Underspecified or implicit parameters could lead to exploitable
+      faults in implementations, for example, cross curve ECDH between
       P-256 and P-384 or X25519.
 
    *  Alternative algorithms at a component layer, such as symmetric key
       encryption, might provide different security properties, for
-      example AES-CBC vs AES-GCM.
+      example, "A128GCM" vs. "A128CBC-HS256".
 
-   While this specification provides a definition of what fully
+   While this specification provides a definition of what fully-
    specified encryption algorithm identifiers are for both JOSE and
    COSE, including examples, it does not deprecate any polymorphic
-   algorithms or register any new fully specified algorithms.
+   algorithms or register any new fully-specified algorithms.
 
    The following sections describe what fully specified means for each
    mode.
@@ -273,13 +273,11 @@ Table of Contents
    symmetric encryption algorithm is referred to as a key wrapping
    algorithm and the secret_key is referred to as a key wrapping key.
 
-   Examples of fully specified symmetric encryption algorithms are
-   "A128GCM" (AES GCM using 128-bit key) and "A128CBC" (AES CBC using
-   128-bit key).
+   An example of a fully-specified symmetric encryption algorithm is
+   "A128GCM" (AES GCM using 128-bit key).
 
-   Examples of fully specified key wrapping algorithms are "A128KW" (AES
-   Key Wrap using 128-bit key) and "A256KW" (AES Key Wrap using 256-bit
-   key).
+   An example of a fully-specified key wrapping algorithm is "A128KW"
+   (AES Key Wrap using 128-bit key).
 
    A symmetric encryption algorithm is fully specified when it satisfies
    the interface above, and depends only on the parameters to the
@@ -287,11 +285,11 @@ Table of Contents
 
    Direct Encryption and Key Wrapping algorithms encode the primary
    symmetric key parameter (key length) in the algorithm identifier.
-   Key Wrapping algorithms impose additional implict contraints on AAD
+   Key Wrapping algorithms impose additional implicit constraints on AAD
    and IV.
 
-   In JOSE and COSE, all registered Direct Encryption and Key Wrapping
-   algorithms are fully specified.
+   In JOSE and COSE, all currently registered Direct Encryption and Key
+   Wrapping algorithms are fully specified.
 
    Example of a decoded JWE Protected Header, for Direct Encryption:
 
@@ -309,40 +307,38 @@ Table of Contents
      ...
    }
 
-   TODO: COSE EDN example.
-
 3.2.  Key Establishment and Direct Encryption
 
    Key establishment and direct encryption algorithms generally satisfy
    the following interface:
 
-   secret_key, public_key = key_generation(algorithm_identifier)
+   private_key, public_key = key_generation(algorithm_identifier)
    ciphertext = encrypt(plaintext, public_key)
-   plaintext  = decrypt(ciphertext, secret_key)
+   plaintext  = decrypt(ciphertext, private_key)
 
    Depending on the symmetric algorithm, additional parameters such as
    additional authenticated data (AAD) or initialization vector (IV)
    might be required.
 
    Although JOSE and COSE encode this type of encryption differently,
-   both rely on a symmetric key derived from an assymetric key.  An
+   both rely on a symmetric key derived from an asymmetric key.  An
    algorithm called a key derivation function (KDF) is applied between
    key establishment and symmetric encryption.
 
-   Key establishment algorithms often rely on an assymetric cryptgraphic
-   operation whereby a public and a private key are used to produce a
-   shared secret, which can be combined with a KDF to produce a
-   symmetric key.  The process of producing a shared secret is key type
-   specific, and is different for elliptic curves, RSA, and lattice
-   based algorithms.
+   Key establishment algorithms often rely on an asymmetric
+   cryptographic operation whereby a public and a private key are used
+   to produce a shared secret, which can be combined with a KDF to
+   produce a symmetric key.  The process of producing a shared secret is
+   key type specific, and is different for elliptic curves, RSA, and
+   lattice based algorithms.
 
    Elliptic curve Diffie-Hellman (ECDH) is used to produce a shared
-   secret with elliptic curve based keys.
+   secret with elliptic curve based keys as follows:
 
-   secret_key1, public_key1 = key_generation(algorithm_identifier)
-   secret_key2, public_key2 = key_generation(algorithm_identifier)
-   shared_secret = derive_shared_secret(public_key1, secret_key2)
-   shared_secret = derive_shared_secret(public_key2, secret_key1)
+   private_key1, public_key1 = key_generation(algorithm_identifier)
+   private_key2, public_key2 = key_generation(algorithm_identifier)
+   shared_secret = derive_shared_secret(public_key1, private_key2)
+   shared_secret = derive_shared_secret(public_key2, private_key1)
 
    An algorithm called a Key Encapsulation Mechanism, can be used to
    provide a common interface for deriving shared secrets, regardless of
@@ -351,33 +347,33 @@ Table of Contents
    Key encapsulation algorithms generally satisfy the following
    interface:
 
-   secret_key, public_key = key_generation(algorithm_identifier)
+   private_key, public_key = key_generation(algorithm_identifier)
    ciphertext, shared_secret = encap(public_key)
-   shared_secret = decap(ciphertext, secret_key)
+   shared_secret = decap(ciphertext, private_key)
 
    When using Key Establishment and Direct Encryption, the ciphertext is
    not only the output of symmetric encryption, but also includes all
    parameters necessary for the recipient to decrypt the ciphertext.
-   Encrypted content encryption keys are not produced by fully specified
+   Encrypted content encryption keys are not produced by fully-specified
    Key Establishment and Direct Encryption algorithms.
 
    In JOSE, the KDF algorithm is "ConcatKDF" and is an implicit
    parameter of the key establishment algorithm.  In JOSE and COSE, key
    establishment algorithms have historically been generic to a key type
-   including all its mandatory parameters.  For example "ECDH-ES"
+   including all its mandatory parameters.  For example, "ECDH-ES"
    establishes a shared secret, and then through the use of a KDF, a
    content encryption key, for keys based on elliptic curves.  However,
-   the mandatory parameters of the public_key and secret_key need be the
-   same in the context of the key type.
+   the mandatory parameters of the public_key and private_key need be
+   the same in the context of the key type.
 
-   For example when using ECDH-ES with secp256r1 (P-256) to establish a
-   shared secret, the ECDH algorithm is a function of an ephemerial and
-   a static key, which need to be of the same key type, and having the
+   For example, when using ECDH-ES with secp256r1 (P-256) to establish a
+   shared secret, the ECDH algorithm is a function of an ephemeral and a
+   static key, which need to be of the same key type, and having the
    same parameters, in this case, the curve parameter.
 
-   In order to successfully encrypt to a recipient, a sender needs to
-   posses the recipient's key (which contains the curve parameter) and
-   know the recipients supported algorithms.
+   To successfully encrypt to a recipient, a sender needs to possess the
+   recipient's key (which contains the curve parameter) and know the
+   recipients supported algorithms.
 
    In JOSE and COSE, key representations can support communicating the
    algorithm which a recipient supports for a given key.  It is
@@ -393,54 +389,52 @@ Table of Contents
      ...
    }
 
-   TODO: COSE EDN example.
-
    Despite containing both the key establishment algorithm (with an
    implicit KDF) and the symmetric encryption algorithm, the example
    above is not fully specified.
 
-   In order to make a Key Establishment and Direct Encryption algorithm
-   fully specified, all essential parameters need to be encoded in the
+   To make a Key Establishment and Direct Encryption algorithm fully
+   specified, all essential parameters need to be encoded in the
    algorithm identifier.  In the context of the example above, the
-   missing explict parameters are curve name, and KDF name.  If the KDF
+   missing explicit parameters are curve name and KDF name.  If the KDF
    requires additional parameters, they need to be present.
 
-   To convey a fully specified Key Establishment and Direct Encryption
+   To convey a fully-specified Key Establishment and Direct Encryption
    algorithm in JOSE, the "alg" value MUST be "dir", and the "enc" value
    MUST be fully specified, and include all essential parameters for
    both key establishment and symmetric encryption.  For example: "ECDH-
    ES-P256-CONCAT-KDF-A128GCM", "ECDH-ES-P384-CONCAT-KDF-A256GCM" or
    "ECDH-ES-X25519-CONCAT-KDF-A256GCM"
 
-   To convey a fully specified Key Establishment and Direct Encryption
+   To convey a fully-specified Key Establishment and Direct Encryption
    algorithm in COSE, the "alg" value MUST include all essential
    parameters for both key establishment and symmetric encryption.  For
    example: "ECDH-ES-P256-HKDF-SHA-256-A128GCM", "ECDH-ES-P384-HKDF-SHA-
    512-A256GCM" or "ECDH-ES-X25519-HKDF-SHA-512-A256GCM"
 
-   Fully specified Key Establishment and Direct Encryption algorithms
+   Fully-specified Key Establishment and Direct Encryption algorithms
    enable the sender and receiver to agree on all algorithms needed to
    encrypt and decrypt a message using a single algorithm identifier.
 
-3.3.  Two Layer Encryption
+3.3.  Two-Layer Encryption
 
-   This section is confusing because it needs to address both JOSE and
-   COSE which each offer multiple ways that a content encryption key can
-   be produced and protected, then later used to decrypt or encrypt
+   This section describes Two-Layer Encryption in both JOSE and COSE.
+   Each defines multiple ways that a content encryption key can be
+   produced and protected, then later used to decrypt or encrypt
    content.
 
-   This specification uses the term "Two Layer Encryption" to refer to
+   This specification uses the term "Two-Layer Encryption" to refer to
    what JOSE describes as "Key Encryption" and "Key Agreement with Key
    Wrapping", and what COSE describes as "Key Transport" and "Key
    Agreement with Key Wrap".
 
-   A distinguishing characteristic of Two Layer Encryption schemes is
+   A distinguishing characteristic of Two-Layer Encryption schemes is
    that multiple recipients can perform decryptions, using a wide range
    of algorithms, and that encrypted content encryption keys are always
    present.
 
    In RSA-OAEP the encrypted content encryption key is generated through
-   an assymetric cryptographic operation.
+   an asymmetric cryptographic operation.
 
    When Key Wrapping without any key establishment is used, the content
    encryption key is encrypted using a symmetric cryptographic operation
@@ -461,17 +455,17 @@ Table of Contents
 
    When Key Establishment with Key Wrapping is used, the content
    encryption key is protected with Key Wrapping, where the Key
-   Encryption Key is derived from an assymetric cryptographic operation
+   Encryption Key is derived from an asymmetric cryptographic operation
    and a key derivation function.
 
    Key Establishment with Key Wrapping algorithms generally satisfy the
    following interface:
 
-   secret_key, public_key = key_generation(algorithm_identifier)
-   # ignoring ephemeral static vs static static, etc...
+   private_key, public_key = key_generation(algorithm_identifier)
+   # ignoring ephemeral static vs. static static, etc.
 
    key_encryption_key = \
-   key_establishment(public_key, secret_key)
+   key_establishment(public_key, private_key)
 
    encrypted_content_encryption_key = \
    encrypt(content_encryption_key, key_encryption_key)
@@ -482,12 +476,12 @@ Table of Contents
    The interface above is consistent with the Section on Key
    Establishment and Direct Encryption, specifically the description of
    how the process of deriving a shared secret and content encryption
-   key is specific to the assymetric key type used.  The difference is
+   key is specific to the asymmetric key type used.  The difference is
    that instead of using the derived content encryption key directly,
-   Two Layer encryption always derives a key encryption key, and wraps
+   Two-Layer encryption always derives a key encryption key, and wraps
    the content encryption key.
 
-   Regardless of how a Two Layer Encryption scheme protects a content
+   Regardless of how a Two-Layer Encryption scheme protects a content
    encryption key, content encryption algorithms generally satisfy the
    following interface:
 
@@ -501,7 +495,7 @@ Table of Contents
    such as additional authenticated data (AAD) or initialization vector
    (IV) might be required.
 
-   Although JOSE and COSE encode Two Layer Encryptions differently, both
+   Although JOSE and COSE encode Two-Layer Encryptions differently, both
    rely on an encrypted content encryption key.  The content encryption
    key is encrypted either using Key Wrapping directly, or through Key
    Establishment and then Key Wrapping or Key Transport or Key
@@ -511,15 +505,15 @@ Table of Contents
    content encryption key is known and agreed to by both sender and
    recipient.
 
-   When using Two Layer Encryption, the ciphertext is not only the
+   When using Two-Layer Encryption, the ciphertext is not only the
    output of symmetric encryption, but also includes all parameters
    necessary for the recipient to decrypt the ciphertext, including
    parameters for use with the key establishment algorithm, such as
    ephemeral or encapsulated keys, any required key derivation functions
    and their parameters and the key wrapping algorithm.  Encrypted
-   content encryption keys are always present in when Two Layer
-   Encryption algorithms are used.  Two Layer Encryption is often used
-   for encrypting the same plaintext to multiple recipients, in contrast
+   content encryption keys are always present when Two-Layer Encryption
+   algorithms are used.  Two-Layer Encryption is often used for
+   encrypting the same plaintext to multiple recipients, in contrast
    with other modes which can only be used to encrypt to a single
    recipient.
 
@@ -542,26 +536,26 @@ Table of Contents
    }
 
    Despite containing both the key establishment algorithm, with either
-   an implict KDF, or a Key Transport algorithm and a symmetric
+   an implicit KDF, or a Key Transport algorithm and a symmetric
    encryption algorithm, the examples above are not fully specified.
 
-   In order to make a Two Layer Encryption algorithm fully specified,
-   all security relevant details need to be encoded in the algorithm
+   To make a Two-Layer Encryption algorithm fully specified, all
+   security relevant details need to be encoded in the algorithm
    identifier.  In the context of the examples above, the missing
-   explict parameters are curve name, kdf and required parameters, and
+   explicit parameters are curve name, kdf and required parameters, and
    content encryption algorithm to use with the decrypted content
    encryption key.
 
-   To convey a fully specified Two Layer Encryption in JOSE, the "alg"
+   To convey a fully-specified Two-Layer Encryption in JOSE, the "alg"
    MUST include all essential parameters for key establishment, key
-   wrapping and symmetric encryption.  For example: "ECDH-ES-P256-
+   wrapping, and symmetric encryption.  For example: "ECDH-ES-P256-
    CONCAT-KDF-A128KW-A128GCM", "ECDH-ES-P384-CONCAT-KDF-A256KW-A256GCM",
    "RSA-OAEP-256-4096-A128GCM" or "ECDH-ES-X25519-CONCAT-KDF-A256KW-
    A256GCM"
 
-   To convey a fully specified Two Layer Encryption algorithm in COSE,
+   To convey a fully-specified Two-Layer Encryption algorithm in COSE,
    the "alg" value MUST include all essential parameters for key
-   establishment, key wrapping and symmetric encryption.  For example:
+   establishment, key wrapping, and symmetric encryption.  For example:
    "ECDH-ES-P256-HKDF-SHA-256-A128KW-A128GCM", "ECDH-ES-P384-HKDF-SHA-
    512-A256KW-A256GCM" or "ECDH-ES-X25519-HKDF-SHA-512-A256KW-A256GCM"
 
@@ -569,12 +563,12 @@ Table of Contents
    encryption key after it is decrypted is required to prevent cross
    mode attacks, such as those described in RFC9459.
 
-   Fully specified Two Layer Encryption algorithms enable the sender and
+   Fully-specified Two-Layer Encryption algorithms enable the sender and
    receiver to agree on all mandatory security parameters using a single
    algorithm identifier.  They also enable a protocol to specify an
    allow list of algorithm combinations that does not include
    polymorphic combinations, such as cross curve key establishment,
-   cross mode symmetric encryption, or mismatched kdf size to symmetric
+   cross mode symmetric encryption, or mismatched KDF size to symmetric
    key scenarios.
 
 4.  IANA Considerations
@@ -758,7 +752,7 @@ Table of Contents
    both 2048- and 4096-bit keys.  The same is true of the PS*
    algorithms.
 
-   This is not a problem in practice, because RSA libraries accomodate
+   This is not a problem in practice, because RSA libraries accommodate
    keys of different sizes without having to use different code.
    Therefore, for example, there are not known cases in the wild where
    it would be useful to have different algorithm identifiers for
@@ -772,7 +766,7 @@ Table of Contents
    The working group has discussed whether the ECDH-ES key agreement
    algorithm should be considered fully-specified or not, because it can
    use ephemeral keys of different key types and algorithms.  Indeed, an
-   implementation might work when ECDH-ES is used with a ephemeral keys
+   implementation might work when ECDH-ES is used with ephemeral keys
    using the P-256 curve, and not work when used with ephemeral keys
    using the Ed25519 curve.
 
@@ -903,7 +897,7 @@ Appendix A.  Document History
 
 Acknowledgements
 
-   The authors thank John Bradley, Brian Campbell, Ilari Liusvarra,
+   The authors thank John Bradley, Brian Campbell, Ilari Liusvaara,
    Tobias Looker, and Filip Skokan for their contributions to this
    specification.
 
