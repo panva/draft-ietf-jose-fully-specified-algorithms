@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-20T00:31:10.499889+00:00",
+  "timestamp": "2024-06-23T00:34:32.522329+00:00",
   "repo": "selfissued/draft-ietf-jose-fully-specified-algorithms",
   "labels": [
     {
@@ -569,24 +569,26 @@
       "id": "PR_kwDOKNEhZc5yZRqy",
       "title": "Spelling, grammar, and terminology corrections",
       "url": "https://github.com/selfissued/draft-ietf-jose-fully-specified-algorithms/pull/9",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "selfissued",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-06-13T17:43:32Z",
-      "updatedAt": "2024-06-13T18:29:17Z",
+      "updatedAt": "2024-06-22T00:34:23Z",
       "baseRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
       "baseRefName": "main",
       "baseRefOid": "6f2fdca8b4a51300140c07aaec04832eaf6c9834",
       "headRepository": "selfissued/draft-ietf-jose-fully-specified-algorithms",
       "headRefName": "mbj-spelling-grammar-terminology",
       "headRefOid": "7cd654765a263290e121edae7b1762e8592ad0a2",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-06-22T00:34:22Z",
+      "mergedAt": "2024-06-22T00:34:22Z",
+      "mergedBy": "selfissued",
+      "mergeCommit": {
+        "oid": "8ade2474de034ad3d596327454eda43120fdaabb"
+      },
       "comments": [],
       "reviews": [
         {
