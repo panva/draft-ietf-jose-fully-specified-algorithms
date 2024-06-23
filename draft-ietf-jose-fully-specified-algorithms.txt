@@ -169,18 +169,35 @@ Table of Contents
 
    The following fully-specified COSE algorithms are defined:
 
-    +========+=================+===================+==================+
-    | Name   | COSE Value      | Description       | COSE Recommended |
-    +========+=================+===================+==================+
-    | ESP256 | TBD (requested  | ECDSA using P-256 | Yes              |
-    |        | assignment -9)  | curve and SHA-256 |                  |
-    +--------+-----------------+-------------------+------------------+
-    | ESP384 | TBD (requested  | ECDSA using P-384 | Yes              |
-    |        | assignment -48) | curve and SHA-384 |                  |
-    +--------+-----------------+-------------------+------------------+
-    | ESP512 | TBD (requested  | ECDSA using P-521 | Yes              |
-    |        | assignment -49) | curve and SHA-512 |                  |
-    +--------+-----------------+-------------------+------------------+
+      +========+==================+===================+=============+
+      | Name   | COSE Value       | Description       | COSE        |
+      |        |                  |                   | Recommended |
+      +========+==================+===================+=============+
+      | ESP256 | TBD (requested   | ECDSA using P-256 | Yes         |
+      |        | assignment -9)   | curve and SHA-256 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESP384 | TBD (requested   | ECDSA using P-384 | Yes         |
+      |        | assignment -48)  | curve and SHA-384 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESP512 | TBD (requested   | ECDSA using P-521 | Yes         |
+      |        | assignment -49)  | curve and SHA-512 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESB256 | TBD (requested   | ECDSA using       | No          |
+      |        | assignment -261) | BrainpoolP256r1   |             |
+      |        |                  | curve and SHA-256 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESB320 | TBD (requested   | ECDSA using       | No          |
+      |        | assignment -262) | BrainpoolP320r1   |             |
+      |        |                  | curve and SHA-384 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESB384 | TBD (requested   | ECDSA using       | No          |
+      |        | assignment -263) | BrainpoolP384r1   |             |
+      |        |                  | curve and SHA-384 |             |
+      +--------+------------------+-------------------+-------------+
+      | ESB512 | TBD (requested   | ECDSA using       | No          |
+      |        | assignment -264) | BrainpoolP512r1   |             |
+      |        |                  | curve and SHA-512 |             |
+      +--------+------------------+-------------------+-------------+
 
                       Table 1: ECDSA Algorithm Values
 
@@ -639,6 +656,34 @@ Table of Contents
    *  Recommended: Yes
 
 
+   *  Name: ESB256
+   *  Value: TBD (requested assignment -261)
+   *  Description: ECDSA using BrainpoolP256r1 curve and SHA-256
+   *  Reference: Section 2.2 of this document
+   *  Recommended: No
+
+
+   *  Name: ESB320
+   *  Value: TBD (requested assignment -262)
+   *  Description: ECDSA using BrainpoolP320r1 curve and SHA-384
+   *  Reference: Section 2.2 of this document
+   *  Recommended: No
+
+
+   *  Name: ESB384
+   *  Value: TBD (requested assignment -263)
+   *  Description: ECDSA using BrainpoolP384r1 curve and SHA-384
+   *  Reference: Section 2.2 of this document
+   *  Recommended: No
+
+
+   *  Name: ESB512
+   *  Value: TBD (requested assignment -264)
+   *  Description: ECDSA using BrainpoolP512r1 curve and SHA-512
+   *  Reference: Section 2.2 of this document
+   *  Recommended: No
+
+
    *  Name: Ed25519
    *  Value: TBD (requested assignment -50)
    *  Description: EdDSA using Ed25519 curve
@@ -878,6 +923,8 @@ Appendix A.  Document History
    *  Addressed security considerations feedback from WGLC.
 
    *  Made COSE Recommended status for Ed25519 and Ed448 "yes".
+
+   *  Registered COSE algorithms for using Brainpool curves with ECDSA.
 
    -02
 

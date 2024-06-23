@@ -1397,6 +1397,30 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <td class="text-left" rowspan="1" colspan="1">ECDSA using P-521 curve and SHA-512</td>
               <td class="text-left" rowspan="1" colspan="1">Yes</td>
             </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB256</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -261)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP256r1 curve and SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB320</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -262)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP320r1 curve and SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB384</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -263)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP384r1 curve and SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB512</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -264)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP512r1 curve and SHA-512</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
           </tbody>
         </table>
 </div>
@@ -1973,15 +1997,15 @@ or mismatched KDF size to symmetric key scenarios.<a href="#section-3.3-26" clas
 <ul class="compact">
 <li class="compact" id="section-4.2.1-7.1">
               <p id="section-4.2.1-7.1.1">
- Name: Ed25519<a href="#section-4.2.1-7.1.1" class="pilcrow">¶</a></p>
+ Name: ESB256<a href="#section-4.2.1-7.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.2">
               <p id="section-4.2.1-7.2.1">
- Value: TBD (requested assignment -50)<a href="#section-4.2.1-7.2.1" class="pilcrow">¶</a></p>
+ Value: TBD (requested assignment -261)<a href="#section-4.2.1-7.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.3">
               <p id="section-4.2.1-7.3.1">
- Description: EdDSA using Ed25519 curve<a href="#section-4.2.1-7.3.1" class="pilcrow">¶</a></p>
+ Description: ECDSA using BrainpoolP256r1 curve and SHA-256<a href="#section-4.2.1-7.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.4">
               <p id="section-4.2.1-7.4.1">
@@ -1989,22 +2013,22 @@ or mismatched KDF size to symmetric key scenarios.<a href="#section-3.3-26" clas
 </li>
             <li class="compact" id="section-4.2.1-7.5">
               <p id="section-4.2.1-7.5.1">
- Recommended: Yes<a href="#section-4.2.1-7.5.1" class="pilcrow">¶</a></p>
+ Recommended: No<a href="#section-4.2.1-7.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.2.1-8"></p>
 <ul class="compact">
 <li class="compact" id="section-4.2.1-9.1">
               <p id="section-4.2.1-9.1.1">
- Name: Ed448<a href="#section-4.2.1-9.1.1" class="pilcrow">¶</a></p>
+ Name: ESB320<a href="#section-4.2.1-9.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.2">
               <p id="section-4.2.1-9.2.1">
- Value: TBD (requested assignment -51)<a href="#section-4.2.1-9.2.1" class="pilcrow">¶</a></p>
+ Value: TBD (requested assignment -262)<a href="#section-4.2.1-9.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.3">
               <p id="section-4.2.1-9.3.1">
- Description: EdDSA using Ed448 curve<a href="#section-4.2.1-9.3.1" class="pilcrow">¶</a></p>
+ Description: ECDSA using BrainpoolP320r1 curve and SHA-384<a href="#section-4.2.1-9.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.4">
               <p id="section-4.2.1-9.4.1">
@@ -2012,7 +2036,99 @@ or mismatched KDF size to symmetric key scenarios.<a href="#section-3.3-26" clas
 </li>
             <li class="compact" id="section-4.2.1-9.5">
               <p id="section-4.2.1-9.5.1">
- Recommended: Yes<a href="#section-4.2.1-9.5.1" class="pilcrow">¶</a></p>
+ Recommended: No<a href="#section-4.2.1-9.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-10"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-11.1">
+              <p id="section-4.2.1-11.1.1">
+ Name: ESB384<a href="#section-4.2.1-11.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.2">
+              <p id="section-4.2.1-11.2.1">
+ Value: TBD (requested assignment -263)<a href="#section-4.2.1-11.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.3">
+              <p id="section-4.2.1-11.3.1">
+ Description: ECDSA using BrainpoolP384r1 curve and SHA-384<a href="#section-4.2.1-11.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.4">
+              <p id="section-4.2.1-11.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-11.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.5">
+              <p id="section-4.2.1-11.5.1">
+ Recommended: No<a href="#section-4.2.1-11.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-12"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-13.1">
+              <p id="section-4.2.1-13.1.1">
+ Name: ESB512<a href="#section-4.2.1-13.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.2">
+              <p id="section-4.2.1-13.2.1">
+ Value: TBD (requested assignment -264)<a href="#section-4.2.1-13.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.3">
+              <p id="section-4.2.1-13.3.1">
+ Description: ECDSA using BrainpoolP512r1 curve and SHA-512<a href="#section-4.2.1-13.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.4">
+              <p id="section-4.2.1-13.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-13.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.5">
+              <p id="section-4.2.1-13.5.1">
+ Recommended: No<a href="#section-4.2.1-13.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-14"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-15.1">
+              <p id="section-4.2.1-15.1.1">
+ Name: Ed25519<a href="#section-4.2.1-15.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.2">
+              <p id="section-4.2.1-15.2.1">
+ Value: TBD (requested assignment -50)<a href="#section-4.2.1-15.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.3">
+              <p id="section-4.2.1-15.3.1">
+ Description: EdDSA using Ed25519 curve<a href="#section-4.2.1-15.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.4">
+              <p id="section-4.2.1-15.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-15.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.5">
+              <p id="section-4.2.1-15.5.1">
+ Recommended: Yes<a href="#section-4.2.1-15.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-16"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-17.1">
+              <p id="section-4.2.1-17.1.1">
+ Name: Ed448<a href="#section-4.2.1-17.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.2">
+              <p id="section-4.2.1-17.2.1">
+ Value: TBD (requested assignment -51)<a href="#section-4.2.1-17.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.3">
+              <p id="section-4.2.1-17.3.1">
+ Description: EdDSA using Ed448 curve<a href="#section-4.2.1-17.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.4">
+              <p id="section-4.2.1-17.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-17.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.5">
+              <p id="section-4.2.1-17.5.1">
+ Recommended: Yes<a href="#section-4.2.1-17.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2384,6 +2500,10 @@ or mismatched KDF size to symmetric key scenarios.<a href="#section-3.3-26" clas
         <li class="normal" id="appendix-A-3.3">
           <p id="appendix-A-3.3.1">
      Made COSE Recommended status for Ed25519 and Ed448 "yes".<a href="#appendix-A-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-A-3.4">
+          <p id="appendix-A-3.4.1">
+     Registered COSE algorithms for using Brainpool curves with ECDSA.<a href="#appendix-A-3.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="appendix-A-4">
