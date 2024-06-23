@@ -6,7 +6,7 @@ JOSE Working Group                                            M.B. Jones
 Internet-Draft                                    Self-Issued Consulting
 Updates: 7518, 8037, 9053 (if approved)                        O. Steele
 Intended status: Standards Track                               Transmute
-Expires: 31 August 2024                                 28 February 2024
+Expires: 25 December 2024                                   23 June 2024
 
 
               Fully-Specified Algorithms for JOSE and COSE
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 August 2024.
+   This Internet-Draft will expire on 25 December 2024.
 
 Copyright Notice
 
@@ -197,12 +197,12 @@ Table of Contents
     |       |            |             | Implementation | Recommended |
     |       |            |             | Requirements   |             |
     +=======+============+=============+================+=============+
-    |Ed25519| TBD        | EdDSA using | Optional       | No          |
+    |Ed25519| TBD        | EdDSA using | Optional       | Yes         |
     |       | (requested | Ed25519     |                |             |
     |       | assignment | curve       |                |             |
     |       | -50)       |             |                |             |
     +-------+------------+-------------+----------------+-------------+
-    |Ed448  | TBD        | EdDSA using | Optional       | No          |
+    |Ed448  | TBD        | EdDSA using | Optional       | Yes         |
     |       | (requested | Ed448 curve |                |             |
     |       | assignment |             |                |             |
     |       | -51)       |             |                |             |
@@ -871,9 +871,13 @@ Appendix A.  Document History
 
    [[ to be removed by the RFC Editor before publication as an RFC ]]
 
-   -03 - TBD
+   -03
 
-   *  Address security considerations feedback from WGLC.
+   *  Acknowledged contributions made during Working Group Last Call.
+
+   *  Addressed security considerations feedback from WGLC.
+
+   *  Made COSE Recommended status for Ed25519 and Ed448 "yes".
 
    -02
 
@@ -897,9 +901,11 @@ Appendix A.  Document History
 
 Acknowledgements
 
-   The authors thank John Bradley, Brian Campbell, Ilari Liusvaara,
-   Tobias Looker, and Filip Skokan for their contributions to this
-   specification.
+   The authors thank Carsten Bormann, John Bradley, Tim Bray, Brian
+   Campbell, Stephen Farrell, Ilari Liusvaara, Tobias Looker, Neil
+   Madden, John Mattsson, Jeremy O'Donoghue, Anders Rundgren, Göran
+   Selander, Filip Skokan, Oliver Terbu, and David Waite for their
+   contributions to this specification.
 
 Authors' Addresses
 
