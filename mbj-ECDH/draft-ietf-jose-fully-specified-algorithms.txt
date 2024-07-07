@@ -60,13 +60,17 @@ Table of Contents
 
    1.  Introduction
      1.1.  Requirements Notation and Conventions
-   2.  Fully-specified Digital Signature Algorithm Identifiers
+   2.  Fully-Specified Digital Signature Algorithm Identifiers
      2.1.  Elliptic Curve Digital Signature Algorithm (ECDSA)
      2.2.  Edwards-Curve Digital Signature Algorithm (EdDSA)
-   3.  Fully-specified Encryption Algorithm Identifiers
-     3.1.  Direct Encryption
-     3.2.  Key Establishment with Direct Encryption
-     3.3.  Two-Layer Encryption
+   3.  Fully-Specified Encryption
+     3.1.  Fully-Specified Computations Using Multiple Algorithms
+     3.2.  Analysis of Modes of Encryption
+       3.2.1.  Direct Encryption
+       3.2.2.  Key Establishment with Direct Encryption
+       3.2.3.  Two-Layer Encryption
+     3.3.  Fully-Specified Encryption Algorithm Identifiers
+       3.3.1.  Elliptic Curve Diffie-Hellman (ECDH)
    4.  IANA Considerations
      4.1.  JOSE Algorithms Registrations
        4.1.1.  Fully-Specified JOSE Algorithm Registrations
@@ -78,14 +82,13 @@ Table of Contents
        4.3.1.  JSON Web Signature and Encryption Algorithms
        4.3.2.  COSE Algorithms
    5.  Key Representations
-   6.  Fully-Specified Computations Using Multiple Algorithms
-   7.  Notes on Algorithms Not Updated
-     7.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
-     7.2.  ECDH-ES and its Ephemeral Keys
-   8.  Security Considerations
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   6.  Notes on Algorithms Not Updated
+     6.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
+     6.2.  ECDH-ES and its Ephemeral Keys
+   7.  Security Considerations
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Appendix A.  Inventory of Polymorphic ECDH Algorithms
      A.1.  Polymorphic ECDH JOSE Algorithms
      A.2.  Polymorphic ECDH COSE Algorithms
@@ -155,7 +158,7 @@ Table of Contents
    14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-2.  Fully-specified Digital Signature Algorithm Identifiers
+2.  Fully-Specified Digital Signature Algorithm Identifiers
 
    This section creates fully-specified digital signature algorithm
    identifiers for all registered polymorphic JOSE and COSE algorithms
@@ -170,7 +173,7 @@ Table of Contents
    in Section 2.1 of [RFC9053].  (The corresponding JOSE registrations
    in [RFC7518] are full-specified.)
 
-   The following fully-specified COSE algorithms are defined:
+   The following fully-specified COSE ECDSA algorithms are defined:
 
       +========+==================+===================+=============+
       | Name   | COSE Value       | Description       | COSE        |
@@ -210,7 +213,8 @@ Table of Contents
    Signature Algorithm (EdDSA) by JOSE and [RFC9053] defines its current
    use by COSE.  Both register polymorphic EdDSA algorithm identifiers.
 
-   The following fully-specified JOSE and COSE algorithms are defined:
+   The following fully-specified JOSE and COSE EdDSA algorithms are
+   defined:
 
     +=======+============+=============+================+=============+
     |Name   | COSE Value | Description | JOSE           | COSE        |
@@ -230,12 +234,30 @@ Table of Contents
 
                       Table 2: EdDSA Algorithm Values
 
-3.  Fully-specified Encryption Algorithm Identifiers
+3.  Fully-Specified Encryption
 
    This section describes the construction of fully-specified encryption
    algorithm identifiers in the context of existing the JOSE and COSE
    encryption schemes JSON Web Encryption (JWE) as described in
    [RFC7516] and COSE Encrypt as described in [RFC9052].
+
+3.1.  Fully-Specified Computations Using Multiple Algorithms
+
+   Both JOSE and COSE have operations that take multiple algorithms as
+   parameters.  Encrypted objects in JOSE [RFC7516] use two algorithm
+   identifiers: the first in the alg (Algorithm) Header Parameter, which
+   specifies how to determine the content encryption key, and the second
+   in the enc (Encryption Algorithm) Header Parameter, which specifies
+   the content encryption algorithm.  Likewise, encrypted COSE objects
+   can use multiple algorithms for corresponding purposes.
+
+   Each of these multiple algorithms must be independently fully
+   specified.  The operations performed by each of them MUST NOT vary
+   when used alongside other algorithms.  So for instance, for JOSE, alg
+   values and enc values MUST each be fully specified, and their
+   behaviors MUST NOT depend upon one another.
+
+3.2.  Analysis of Modes of Encryption
 
    JOSE and COSE support several modes of encryption, although the
    terminology may differ between JOSE and COSE, these modes are meant
@@ -279,7 +301,7 @@ Table of Contents
    mode.  They also register at least one fully-specified algorithm for
    each mode, when one was not already available.
 
-3.1.  Direct Encryption
+3.2.1.  Direct Encryption
 
    Symmetric encryption algorithms generally satisfy the following
    interface:
@@ -331,7 +353,7 @@ Table of Contents
      ...
    }
 
-3.2.  Key Establishment with Direct Encryption
+3.2.2.  Key Establishment with Direct Encryption
 
    Key establishment with direct encryption algorithms generally satisfy
    the following interface:
@@ -356,7 +378,7 @@ Table of Contents
    key type specific, and is different for elliptic curves, RSA, and
    lattice based algorithms.
 
-   Elliptic curve Diffie-Hellman (ECDH) is used to produce a shared
+   Elliptic Curve Diffie-Hellman (ECDH) is used to produce a shared
    secret with elliptic curve based keys as follows:
 
    private_key1, public_key1 = key_generation(algorithm_identifier)
@@ -440,7 +462,7 @@ Table of Contents
    enable the sender and receiver to agree on all algorithms needed to
    encrypt and decrypt a message using a single algorithm identifier.
 
-3.3.  Two-Layer Encryption
+3.2.3.  Two-Layer Encryption
 
    This section describes Two-Layer Encryption in both JOSE and COSE.
    Each defines multiple ways that a content encryption key can be
@@ -595,6 +617,63 @@ Table of Contents
    cross mode symmetric encryption, or mismatched KDF size to symmetric
    key scenarios.
 
+3.3.  Fully-Specified Encryption Algorithm Identifiers
+
+3.3.1.  Elliptic Curve Diffie-Hellman (ECDH)
+
+   [RFC7518] defines the current use of Elliptic Curve Diffie-Hellman
+   (ECDH) by JOSE.  Likewise, [RFC9053] defines the current use of
+   Elliptic Curve Diffie-Hellman (ECDH) by COSE.  As described in
+   Appendix A, both sets of registered ECDH algorithms are polymorphic.
+
+   The following fully-specified JOSE ECDH algorithms are defined:
+
+     +======================+======================+================+
+     | Name                 | Description          | Implementation |
+     |                      |                      | Requirements   |
+     +======================+======================+================+
+     | ECDH-ES-P-256        | ECDH-ES using Concat | Recommended    |
+     |                      | KDF and P-256        |                |
+     +----------------------+----------------------+----------------+
+     | ECDH-ES-P-256+A128KW | ECDH-ES using Concat | Recommended    |
+     |                      | KDF and P-256 and    |                |
+     |                      | "A128KW" wrapping    |                |
+     +----------------------+----------------------+----------------+
+
+                   Table 3: JOSE ECDH Algorithm Values
+
+   The following fully-specified COSE ECDH algorithms are defined:
+
+    +===============+================+==================+=============+
+    | Name          | COSE Value     | Description      | Recommended |
+    +===============+================+==================+=============+
+    | ECDH-ES-P-256 | TBD (requested | ECDH ES using    | Yes         |
+    | + HKDF-256    | assignment     | P-256 w/ HKDF -- |             |
+    |               | -52)           | generate key     |             |
+    |               |                | directly         |             |
+    +---------------+----------------+------------------+-------------+
+    | ECDH-SS-P-256 | TBD (requested | ECDH SS using    | Yes         |
+    | + HKDF-256    | assignment     | P-256 w/ HKDF -- |             |
+    |               | -53)           | generate key     |             |
+    |               |                | directly         |             |
+    +---------------+----------------+------------------+-------------+
+    | ECDH-ES-P-256 | TBD (requested | ECDH ES using    | Yes         |
+    | + HKDF-256 +  | assignment     | P-256 w/ HKDF    |             |
+    | A128KW        | -54)           | and AES Key Wrap |             |
+    |               |                | w/ 128-bit key   |             |
+    +---------------+----------------+------------------+-------------+
+    | ECDH-SS-P-256 | TBD (requested | ECDH SS using    | Yes         |
+    | + HKDF-256 +  | assignment     | P-256 w/ HKDF    |             |
+    | A128KW        | -55)           | and AES Key Wrap |             |
+    |               |                | w/ 128-bit key   |             |
+    +---------------+----------------+------------------+-------------+
+
+                    Table 4: COSE ECDH Algorithm Values
+
+   Should additional fully-specified ECDH algorithms be required, future
+   specifications can register them, using the descriptions in the
+   tables in Appendix A, when applicable.
+
 4.  IANA Considerations
 
 4.1.  JOSE Algorithms Registrations
@@ -609,7 +688,7 @@ Table of Contents
    *  Algorithm Description: EdDSA using Ed25519 curve
    *  Algorithm Usage Locations: alg
    *  JOSE Implementation Requirements: Optional
-   *  Change Controller: IESG
+   *  Change Controller: IETF
    *  Reference: Section 2.2 of [[ this specification ]]
    *  Algorithm Analysis Document(s): [RFC8032]
 
@@ -618,8 +697,27 @@ Table of Contents
    *  Algorithm Description: EdDSA using Ed448 curve
    *  Algorithm Usage Locations: alg
    *  JOSE Implementation Requirements: Optional
-   *  Change Controller: IESG
+   *  Change Controller: IETF
    *  Reference: Section 2.2 of [[ this specification ]]
+   *  Algorithm Analysis Document(s): [RFC8032]
+
+
+   *  Algorithm Name: ECDH-ES-P-256
+   *  Algorithm Description: ECDH-ES using Concat KDF and P-256
+   *  Algorithm Usage Locations: alg
+   *  JOSE Implementation Requirements: Recommended
+   *  Change Controller: IETF
+   *  Reference: Section 3.3.1 of [[ this specification ]]
+   *  Algorithm Analysis Document(s): [RFC8032]
+
+
+   *  Algorithm Name: ECDH-ES-P-256+A128KW
+   *  Algorithm Description: ECDH-ES using Concat KDF and P-256 and
+      "A128KW" wrapping
+   *  Algorithm Usage Locations: alg
+   *  JOSE Implementation Requirements: Recommended
+   *  Change Controller: IETF
+   *  Reference: Section 3.3.1 of [[ this specification ]]
    *  Algorithm Analysis Document(s): [RFC8032]
 
 4.1.2.  Deprecated Polymorphic JOSE Algorithm Registrations
@@ -631,7 +729,7 @@ Table of Contents
    *  Algorithm Description: EdDSA signature algorithms
    *  Algorithm Usage Locations: alg
    *  JOSE Implementation Requirements: Deprecated
-   *  Change Controller: IESG
+   *  Change Controller: IETF
    *  Reference: Section 3.1 of RFC8037
    *  Algorithm Analysis Document(s): [RFC8032]
 
@@ -645,63 +743,93 @@ Table of Contents
    *  Name: ESP256
    *  Value: TBD (requested assignment -9)
    *  Description: ECDSA using P-256 curve and SHA-256
-   *  Reference: Section 2.1 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: Yes
 
 
    *  Name: ESP384
    *  Value: TBD (requested assignment -48)
    *  Description: ECDSA using P-384 curve and SHA-384
-   *  Reference: Section 2.1 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: Yes
 
 
    *  Name: ESP512
    *  Value: TBD (requested assignment -49)
    *  Description: ECDSA using P-521 curve and SHA-512
-   *  Reference: Section 2.1 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: Yes
 
 
    *  Name: ESB256
    *  Value: TBD (requested assignment -261)
    *  Description: ECDSA using BrainpoolP256r1 curve and SHA-256
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: No
 
 
    *  Name: ESB320
    *  Value: TBD (requested assignment -262)
    *  Description: ECDSA using BrainpoolP320r1 curve and SHA-384
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: No
 
 
    *  Name: ESB384
    *  Value: TBD (requested assignment -263)
    *  Description: ECDSA using BrainpoolP384r1 curve and SHA-384
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: No
 
 
    *  Name: ESB512
    *  Value: TBD (requested assignment -264)
    *  Description: ECDSA using BrainpoolP512r1 curve and SHA-512
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.1 of [[ this specification ]]
    *  Recommended: No
 
 
    *  Name: Ed25519
    *  Value: TBD (requested assignment -50)
    *  Description: EdDSA using Ed25519 curve
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.2 of [[ this specification ]]
    *  Recommended: Yes
 
 
    *  Name: Ed448
    *  Value: TBD (requested assignment -51)
    *  Description: EdDSA using Ed448 curve
-   *  Reference: Section 2.2 of this document
+   *  Reference: Section 2.2 of [[ this specification ]]
+   *  Recommended: Yes
+
+
+   *  Name: ECDH-ES-P-256 + HKDF-256
+   *  Value: TBD (requested assignment -52)
+   *  Description: ECDH ES using P-256 w/ HKDF -- generate key directly
+   *  Reference: Section 3.3.1 of [[ this specification ]]
+   *  Recommended: Yes
+
+
+   *  Name: ECDH-SS-P-256 + HKDF-256
+   *  Value: TBD (requested assignment -53)
+   *  Description: ECDH SS using P-256 w/ HKDF -- generate key directly
+   *  Reference: Section 3.3.1 of [[ this specification ]]
+   *  Recommended: Yes
+
+
+   *  Name: ECDH-ES-P-256 + HKDF-256 + A128KW
+   *  Value: TBD (requested assignment -54)
+   *  Description: ECDH ES using P-256 w/ HKDF and AES Key Wrap w/
+      128-bit key
+   *  Reference: Section 3.3.1 of [[ this specification ]]
+   *  Recommended: Yes
+
+
+   *  Name: ECDH-SS-P-256 + HKDF-256 + A128KW
+   *  Value: TBD (requested assignment -55)
+   *  Description: ECDH SS using P-256 w/ HKDF and AES Key Wrap w/
+      128-bit key
+   *  Reference: Section 3.3.1 of [[ this specification ]]
    *  Recommended: Yes
 
 4.2.2.  Deprecated Polymorphic COSE Algorithm Registrations
@@ -741,7 +869,7 @@ Table of Contents
 4.3.1.  JSON Web Signature and Encryption Algorithms
 
    IANA is directed to preserve the current reference to RFC 7518, and
-   to add a reference to this section of this document.
+   to add a reference to this section of this specification.
 
    The review instructions for the designated experts for the IANA "JSON
    Web Signature and Encryption Algorithms" registry
@@ -754,7 +882,8 @@ Table of Contents
 4.3.2.  COSE Algorithms
 
    IANA is directed to preserve the current references to RFC 9053 and
-   RFC 9054, and to add a reference to this section of this document.
+   RFC 9054, and to add a reference to this section of this
+   specification.
 
    The review instructions for the designated experts for the IANA "COSE
    Algorithms" registry [IANA.COSE.Algorithms] in Section 10.4 of
@@ -774,29 +903,13 @@ Table of Contents
    except that the alg value would be Ed25519 rather than EdDSA, if
    included.
 
-6.  Fully-Specified Computations Using Multiple Algorithms
-
-   Both JOSE and COSE have operations that take multiple algorithms as
-   parameters.  Encrypted objects in JOSE [RFC7516] use two algorithm
-   identifiers: the first in the alg (Algorithm) Header Parameter, which
-   specifies how to determine the content encryption key, and the second
-   in the enc (Encryption Algorithm) Header Parameter, which specifies
-   the content encryption algorithm.  Likewise, encrypted COSE objects
-   can use multiple algorithms for corresponding purposes.
-
-   Each of these multiple algorithms must be independently fully
-   specified.  The operations performed by each of them MUST NOT vary
-   when used alongside other algorithms.  So for instance, for JOSE, alg
-   values and enc values MUST each be fully specified, and their
-   behaviors MUST NOT depend upon one another.
-
-7.  Notes on Algorithms Not Updated
+6.  Notes on Algorithms Not Updated
 
    The working group has discussed some existing algorithms that are not
    updated by this specification.  This section discusses why they have
    not been updated.
 
-7.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
+6.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
 
    The working group has discussed whether the RS256, RS384, and RS512
    algorithms should be considered fully-specified or not, because they
@@ -813,7 +926,7 @@ Table of Contents
    Therefore, the RSA signature algorithms are not replaced by this
    specification.
 
-7.2.  ECDH-ES and its Ephemeral Keys
+6.2.  ECDH-ES and its Ephemeral Keys
 
    The working group has discussed whether the ECDH-ES key agreement
    algorithm should be considered fully-specified or not, because it can
@@ -829,7 +942,7 @@ Table of Contents
    Curve", etc.  Feedback from deployers would be useful in determining
    what actions this specification should take in this case.
 
-8.  Security Considerations
+7.  Security Considerations
 
    Using fully-specified algorithm identifiers reduces the attack
    surface relative to using polymorphic algorithm identifiers, since it
@@ -839,9 +952,9 @@ Table of Contents
    The security considerations for ECDSA in [RFC7518], for EdDSA in
    [RFC8037], and for ECDSA and EdDSA in [RFC9053] apply.
 
-9.  References
+8.  References
 
-9.1.  Normative References
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -874,7 +987,7 @@ Table of Contents
               Initial Algorithms", RFC 9053, DOI 10.17487/RFC9053,
               August 2022, <https://www.rfc-editor.org/info/rfc9053>.
 
-9.2.  Informative References
+8.2.  Informative References
 
    [FIDO2]    Bradley, J., Hodges, J., Jones, M., Kumar, A., and J.
               Johan, "Client to Authenticator Protocol (CTAP)", FIDO
@@ -922,7 +1035,7 @@ Table of Contents
 Appendix A.  Inventory of Polymorphic ECDH Algorithms
 
    The working group assembled the following inventory of registered
-   polymorphic Elliptic Curve Diffie Helman (ECDH) JOSE and COSE
+   polymorphic Elliptic Curve Diffie-Hellman (ECDH) JOSE and COSE
    algorithms with the goal of understanding what registering fully-
    specified ECDH algorithms to replace them would entail.  While there
    was not an appetite in the working group to register the full set of
@@ -932,10 +1045,11 @@ Appendix A.  Inventory of Polymorphic ECDH Algorithms
 
    Nonetheless, because working group members did document that not
    having fully-specified algorithms is a problem for some use cases,
-   The engineering compromise employed in this specification is to
-   register a single fully-specified ECDH algorithm of each kind so that
-   it becomes possible to rely only on fully-specified ECDH algorithms
-   for JOSE and COSE.
+   The engineering compromise employed in this specification is
+   registering a single fully-specified ECDH algorithm for each kind of
+   operation so that it becomes possible to rely on fully-specified ECDH
+   algorithms for JOSE and COSE.  These registrations are performed in
+   Section 3.3.1.
 
 A.1.  Polymorphic ECDH JOSE Algorithms
 
@@ -955,7 +1069,7 @@ A.1.  Polymorphic ECDH JOSE Algorithms
     | ECDH-ES+A256KW | ECDH-ES using Concat KDF and "A256KW" wrapping |
     +----------------+------------------------------------------------+
 
-                 Table 3: Polymorphic ECDH JOSE Algorithms
+                 Table 5: Polymorphic ECDH JOSE Algorithms
 
    Fully-specified JOSE versions of these algorithms using combinations
    that make sense, as discussed by the working group, would be:
@@ -989,7 +1103,7 @@ A.1.  Polymorphic ECDH JOSE Algorithms
       |                       | and "A256KW" wrapping               |
       +-----------------------+-------------------------------------+
 
-               Table 4: Fully-Specified ECDH JOSE Algorithms
+               Table 6: Fully-Specified ECDH JOSE Algorithms
 
 A.2.  Polymorphic ECDH COSE Algorithms
 
@@ -1027,7 +1141,7 @@ A.2.  Polymorphic ECDH COSE Algorithms
      |                    | 256-bit key                              |
      +--------------------+------------------------------------------+
 
-                 Table 5: Polymorphic ECDH COSE Algorithms
+                 Table 7: Polymorphic ECDH COSE Algorithms
 
    Fully-specified COSE versions of these algorithms using combinations
    that make sense, as discussed by the working group, would be:
@@ -1059,38 +1173,38 @@ A.2.  Polymorphic ECDH COSE Algorithms
       | ECDH-SS-X448 + HKDF-512  | ECDH SS using X448 w/ HKDF --   |
       |                          | generate key directly           |
       +--------------------------+---------------------------------+
-      | ECDH-ES-P-256 + A128KW   | ECDH ES using P-256 w/ HKDF and |
-      |                          | AES Key Wrap w/ 128-bit key     |
+      | ECDH-ES-P-256 + HKDF-256 | ECDH ES using P-256 w/ HKDF and |
+      | + A128KW                 | AES Key Wrap w/ 128-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-ES-X25519 + A128KW  | ECDH ES using X25519 w/ HKDF    |
-      |                          | and AES Key Wrap w/ 128-bit key |
+      | ECDH-ES-X25519 +         | ECDH ES using X25519 w/ HKDF    |
+      | HKDF-256 + A128KW        | and AES Key Wrap w/ 128-bit key |
       +--------------------------+---------------------------------+
-      | ECDH-ES-P-384 + A192KW   | ECDH ES using P-384 w/ HKDF and |
-      |                          | AES Key Wrap w/ 192-bit key     |
+      | ECDH-ES-P-384 + HKDF-384 | ECDH ES using P-384 w/ HKDF and |
+      | + A192KW                 | AES Key Wrap w/ 192-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-ES-P-521 + A256KW   | ECDH ES using P-521 w/ HKDF and |
-      |                          | AES Key Wrap w/ 256-bit key     |
+      | ECDH-ES-P-521 + HKDF-512 | ECDH ES using P-521 w/ HKDF and |
+      | + A256KW                 | AES Key Wrap w/ 256-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-ES-X448 + A256KW    | ECDH ES using X448 w/ HKDF and  |
-      |                          | AES Key Wrap w/ 256-bit key     |
+      | ECDH-ES-X448 + HKDF-512  | ECDH ES using X448 w/ HKDF and  |
+      | + A256KW                 | AES Key Wrap w/ 256-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-SS-P-256 + A128KW   | ECDH SS using P-256 w/ HKDF and |
-      |                          | AES Key Wrap w/ 128-bit key     |
+      | ECDH-SS-P-256 + HKDF-256 | ECDH SS using P-256 w/ HKDF and |
+      | + A128KW                 | AES Key Wrap w/ 128-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-SS-X25519 + A128KW  | ECDH SS using X25519 w/ HKDF    |
-      |                          | and AES Key Wrap w/ 128-bit key |
+      | ECDH-SS-X25519 +         | ECDH SS using X25519 w/ HKDF    |
+      | HKDF-256 + A128KW        | and AES Key Wrap w/ 128-bit key |
       +--------------------------+---------------------------------+
-      | ECDH-SS-P-384 + A192KW   | ECDH SS using P-384 w/ HKDF and |
-      |                          | AES Key Wrap w/ 192-bit key     |
+      | ECDH-SS-P-384 + HKDF-384 | ECDH SS using P-384 w/ HKDF and |
+      | + A192KW                 | AES Key Wrap w/ 192-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-SS-P-521 + A256KW   | ECDH SS using P-521 w/ HKDF and |
-      |                          | AES Key Wrap w/ 256-bit key     |
+      | ECDH-SS-P-521 + HKDF-512 | ECDH SS using P-521 w/ HKDF and |
+      | + A256KW                 | AES Key Wrap w/ 256-bit key     |
       +--------------------------+---------------------------------+
-      | ECDH-SS-X448 + A256KW    | ECDH SS using X448 w/ HKDF and  |
-      |                          | AES Key Wrap w/ 256-bit key     |
+      | ECDH-SS-X448 + HKDF-512  | ECDH SS using X448 w/ HKDF and  |
+      | + A256KW                 | AES Key Wrap w/ 256-bit key     |
       +--------------------------+---------------------------------+
 
-              Table 6: Fully-Specified ECDH COSE Algorithms
+              Table 8: Fully-Specified ECDH COSE Algorithms
 
 Appendix B.  Document History
 
@@ -1105,6 +1219,8 @@ Appendix B.  Document History
    *  Made COSE Recommended status for Ed25519 and Ed448 "yes".
 
    *  Registered COSE algorithms for using Brainpool curves with ECDSA.
+
+   *  Enabled use of fully-specified ECDH algorithms.
 
    -02
 
