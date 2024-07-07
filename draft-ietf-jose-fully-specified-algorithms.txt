@@ -84,7 +84,6 @@ Table of Contents
    5.  Key Representations
    6.  Notes on Algorithms Not Updated
      6.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
-     6.2.  ECDH-ES and its Ephemeral Keys
    7.  Security Considerations
    8.  References
      8.1.  Normative References
@@ -926,21 +925,9 @@ Table of Contents
    Therefore, the RSA signature algorithms are not replaced by this
    specification.
 
-6.2.  ECDH-ES and its Ephemeral Keys
-
-   The working group has discussed whether the ECDH-ES key agreement
-   algorithm should be considered fully-specified or not, because it can
-   use ephemeral keys of different key types and algorithms.  Indeed, an
-   implementation might work when ECDH-ES is used with ephemeral keys
-   using the P-256 curve, and not work when used with ephemeral keys
-   using the Ed25519 curve.
-
-   One way that protocols can handle this situation is to use a
-   discovery mechanism to declare what ephemeral key types are
-   supported.  The alternative would be to introduce new fully-specified
-   algorithm identifiers for choices such as "ECDH-ES with the P-256
-   Curve", etc.  Feedback from deployers would be useful in determining
-   what actions this specification should take in this case.
+   That said, should it be useful at some point to have RSA algorithm
+   identifiers that are specific to the key size, a future specification
+   can always register them.
 
 7.  Security Considerations
 
