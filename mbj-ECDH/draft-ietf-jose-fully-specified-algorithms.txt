@@ -940,7 +940,8 @@ Appendix A.  Inventory of Polymorphic ECDH Algorithms
 A.1.  Polymorphic ECDH JOSE Algorithms
 
    These registered JOSE algorithms are polymorphic, because they do not
-   include the algorithm to be used for the ephemeral key:
+   include the curve name in the algorithm to be used with the ephemeral
+   key:
 
     +================+================================================+
     | Name           | Description                                    |
