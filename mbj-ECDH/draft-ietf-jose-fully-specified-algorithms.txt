@@ -994,8 +994,8 @@ A.1.  Polymorphic ECDH JOSE Algorithms
 A.2.  Polymorphic ECDH COSE Algorithms
 
    These registered COSE algorithms are likewise polymorphic, because
-   they do not include the algorithm to be used with the ephemeral key
-   or the static key:
+   they do not include the curve name in the algorithm to be used with
+   the ephemeral key or the static key:
 
      +====================+==========================================+
      | Name               | Description                              |
