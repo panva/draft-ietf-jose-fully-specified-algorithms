@@ -17,31 +17,30 @@
  that require additional information beyond the algorithm identifier
  to determine the cryptographic operations to be performed
  as being "polymorphic".
- This specification creates fully-specified algorithm identifiers for all registered
+ This specification creates fully-specified algorithm identifiers for registered
  JOSE and COSE polymorphic algorithm identifiers,
  enabling applications to use only fully-specified algorithm identifiers.
        
     ' name="description">
-<meta content="xml2rfc 3.21.0" name="generator">
+<meta content="xml2rfc 3.22.0" name="generator">
 <meta content="Cryptographic Algorithm Identifiers" name="keyword">
 <meta content="JSON Object Signing and Encryption (JOSE)" name="keyword">
 <meta content="CBOR Object Signing and Encryption (COSE)" name="keyword">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-jose-fully-specified-algorithms-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.21.0
-    Python 3.11.9
+  xml2rfc 3.22.0
+    Python 3.12.3
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.1
+    Jinja2 3.1.4
+    lxml 4.9.4
+    platformdirs 4.2.2
     pycountry 22.3.5
     PyYAML 6.0.1
-    requests 2.31.0
-    setuptools 68.2.2
-    six 1.16.0
+    requests 2.32.3
+    setuptools 69.5.1
     wcwidth 0.2.13
 -->
 <link href="draft-ietf-jose-fully-specified-algorithms.xml" rel="alternate" type="application/rfc+xml">
@@ -1041,11 +1040,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Fully-Specified Algorithms</td>
-<td class="right">February 2024</td>
+<td class="right">July 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Jones &amp; Steele</td>
-<td class="center">Expires 31 August 2024</td>
+<td class="center">Expires 8 January 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1060,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="https://www.rfc-editor.org/rfc/rfc7518" class="eref">7518</a>, <a href="https://www.rfc-editor.org/rfc/rfc8037" class="eref">8037</a>, <a href="https://www.rfc-editor.org/rfc/rfc9053" class="eref">9053</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-28" class="published">28 February 2024</time>
+<time datetime="2024-07-07" class="published">7 July 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-31">31 August 2024</time></dd>
+<dd class="expires"><time datetime="2025-01-08">8 January 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1092,7 +1091,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
  that require additional information beyond the algorithm identifier
  to determine the cryptographic operations to be performed
  as being "polymorphic".
- This specification creates fully-specified algorithm identifiers for all registered
+ This specification creates fully-specified algorithm identifiers for registered
  JOSE and COSE polymorphic algorithm identifiers,
  enabling applications to use only fully-specified algorithm identifiers.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
@@ -1115,7 +1114,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 31 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 January 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1170,10 +1169,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-direct-encryption" class="internal xref">Direct Encryption</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-key-establishment-and-direc" class="internal xref">Key Establishment and Direct Encryption</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-key-establishment-with-dire" class="internal xref">Key Establishment with Direct Encryption</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-two-layer-encryption" class="internal xref">Two Layer Encryption</a></p>
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="auto internal xref">3.3</a>.  <a href="#name-two-layer-encryption" class="internal xref">Two-Layer Encryption</a></p>
 </li>
             </ul>
 </li>
@@ -1247,13 +1246,24 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-document-history" class="internal xref">Document History</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-inventory-of-polymorphic-ec" class="internal xref">Inventory of Polymorphic ECDH Algorithms</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-polymorphic-ecdh-jose-algor" class="internal xref">Polymorphic ECDH JOSE Algorithms</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-polymorphic-ecdh-cose-algor" class="internal xref">Polymorphic ECDH COSE Algorithms</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-document-history" class="internal xref">Document History</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1322,7 +1332,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
  eliminating the possibility of using <code>Ed448</code>.
  Other similar workarounds for polymorphic algorithm identifiers are used in practice.<a href="#section-1-9" class="pilcrow">¶</a></p>
 <p id="section-1-10">
- This specification creates fully-specified algorithm identifiers for all registered
+ This specification creates fully-specified algorithm identifiers for registered
  polymorphic JOSE and COSE algorithms and their parameters,
  enabling applications to use only fully-specified algorithm identifiers.
  It furthermore deprecates the practice of registering polymorphic algorithm identifiers.<a href="#section-1-10" class="pilcrow">¶</a></p>
@@ -1397,6 +1407,30 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <td class="text-left" rowspan="1" colspan="1">ECDSA using P-521 curve and SHA-512</td>
               <td class="text-left" rowspan="1" colspan="1">Yes</td>
             </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB256</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -261)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP256r1 curve and SHA-256</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB320</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -262)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP320r1 curve and SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB384</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -263)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP384r1 curve and SHA-384</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ESB512</td>
+              <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -264)</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDSA using BrainpoolP512r1 curve and SHA-512</td>
+              <td class="text-left" rowspan="1" colspan="1">No</td>
+            </tr>
           </tbody>
         </table>
 </div>
@@ -1435,14 +1469,14 @@ svg :is([fill="white"], [fill^="#fff"]) {
               <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -50)</td>
               <td class="text-left" rowspan="1" colspan="1">EdDSA using Ed25519 curve</td>
               <td class="text-left" rowspan="1" colspan="1">Optional</td>
-              <td class="text-left" rowspan="1" colspan="1">No</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">Ed448</td>
               <td class="text-left" rowspan="1" colspan="1">TBD (requested assignment -51)</td>
               <td class="text-left" rowspan="1" colspan="1">EdDSA using Ed448 curve</td>
               <td class="text-left" rowspan="1" colspan="1">Optional</td>
-              <td class="text-left" rowspan="1" colspan="1">No</td>
+              <td class="text-left" rowspan="1" colspan="1">Yes</td>
             </tr>
           </tbody>
         </table>
@@ -1457,8 +1491,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-fully-specified-encryption-" class="section-name selfRef">Fully-specified Encryption Algorithm Identifiers</a>
       </h2>
 <p id="section-3-1">
-  This section describes the construction of fully-specified encryption algorithm identifiers in the context of existing JOSE and COSE encryption schemes,
-  such as JSON Web Encryption (JWE) as described in <span>[<a href="#RFC7516" class="cite xref">RFC7516</a>]</span> and COSE Encrypt as described in <span>[<a href="#RFC9052" class="cite xref">RFC9052</a>]</span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
+  This section describes the construction of fully-specified encryption algorithm identifiers in the context of existing the JOSE and COSE encryption schemes
+  JSON Web Encryption (JWE) as described in <span>[<a href="#RFC7516" class="cite xref">RFC7516</a>]</span> and
+  COSE Encrypt as described in <span>[<a href="#RFC9052" class="cite xref">RFC9052</a>]</span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <p id="section-3-2">
 JOSE and COSE support several modes of encryption, although the terminology may differ between JOSE and COSE,
 these modes are meant to support:<a href="#section-3-2" class="pilcrow">¶</a></p>
@@ -1469,11 +1504,11 @@ Direct Encryption - A symmetric cryptographic operation.<a href="#section-3-3.1.
 </li>
         <li class="normal" id="section-3-3.2">
           <p id="section-3-3.2.1">
-Key Establishment and Direct Encryption - An assymetric cryptographic operation to derive a shared secret, key derivation and then a symmetric cryptographic operation.<a href="#section-3-3.2.1" class="pilcrow">¶</a></p>
+Key Establishment with Direct Encryption - An asymmetric cryptographic operation to derive a shared secret, key derivation and then a symmetric cryptographic operation.<a href="#section-3-3.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-3.3">
           <p id="section-3-3.3.1">
-Two Layer Encryption - A content encryption key is protected (many possible ways), content encryption and decryption is performed using the protected content encryption key.<a href="#section-3-3.3.1" class="pilcrow">¶</a></p>
+Two-Layer Encryption - A content encryption key is protected (many possible ways), content encryption and decryption is performed using the protected content encryption key.<a href="#section-3-3.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-3-4">
@@ -1485,22 +1520,27 @@ The combination of chosen algorithms might not be implemented by the receiver.<a
 </li>
         <li class="normal" id="section-3-5.2">
           <p id="section-3-5.2.1">
-The combinations of chosen algorithms migth not be aligned in terms of bit strength.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
+The combination of chosen algorithms might not be aligned in terms of strength.<a href="#section-3-5.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-5.3">
           <p id="section-3-5.3.1">
-Under specified or implicit parameters could lead to exploitable faults in implementations, for example cross curve ECDH between P-256 and P-384 or X25519.<a href="#section-3-5.3.1" class="pilcrow">¶</a></p>
+Underspecified or implicit parameters could lead to exploitable faults in implementations, for example, cross curve ECDH between P-256 and P-384 or X25519.<a href="#section-3-5.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-3-5.4">
           <p id="section-3-5.4.1">
-Alternative algorithms at a component layer, such as symmetric key encryption, might provide different security properties, for example AES-CBC vs AES-GCM.<a href="#section-3-5.4.1" class="pilcrow">¶</a></p>
+Alternative algorithms at a component layer, such as symmetric key encryption, might provide different security properties, for example, "A128GCM" vs. "A128CBC-HS256".<a href="#section-3-5.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-3-6">
-While this specification provides a definition of what fully specified encryption algorithm identifiers are for both JOSE and COSE, including examples,
-it does not deprecate any polymorphic algorithms or register any new fully specified algorithms.<a href="#section-3-6" class="pilcrow">¶</a></p>
+While this specification provides a definition of what fully-specified encryption algorithm identifiers are for both JOSE and COSE, including examples,
+it does not deprecate any polymorphic algorithms,
+since complete replacements for them are not provided.
+It does register a small set of new fully-specified encryption algorithms,
+so that polymorphic encryption algorithms need not be used.<a href="#section-3-6" class="pilcrow">¶</a></p>
 <p id="section-3-7">
-The following sections describe what fully specified means for each mode.<a href="#section-3-7" class="pilcrow">¶</a></p>
+The following sections describe what fully specified means for each mode.
+They also register at least one fully-specified algorithm for each mode,
+when one was not already available.<a href="#section-3-7" class="pilcrow">¶</a></p>
 <div id="fully-specified-symmetric-encryption-algs">
 <section id="section-3.1">
         <h3 id="name-direct-encryption">
@@ -1521,16 +1561,16 @@ Depending on the algorithm, additional parameters such as additional authenticat
 In the special case where the plaintext is a content encryption key, to be used with a subsequent symmetric encryption algorithm,
 such a symmetric encryption algorithm is referred to as a key wrapping algorithm and the secret_key is referred to as a key wrapping key.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
 <p id="section-3.1-5">
-Examples of fully specified symmetric encryption algorithms are "A128GCM" (AES GCM using 128-bit key) and "A128CBC" (AES CBC using 128-bit key).<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+An example of a fully-specified symmetric encryption algorithm is "A128GCM" (AES GCM using 128-bit key).<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 <p id="section-3.1-6">
-Examples of fully specified key wrapping algorithms are "A128KW" (AES Key Wrap using 128-bit key) and "A256KW" (AES Key Wrap using 256-bit key).<a href="#section-3.1-6" class="pilcrow">¶</a></p>
+An example of a fully-specified key wrapping algorithm is "A128KW" (AES Key Wrap using 128-bit key).<a href="#section-3.1-6" class="pilcrow">¶</a></p>
 <p id="section-3.1-7">
 A symmetric encryption algorithm is fully specified when it satisfies the interface above, and depends only on the parameters to the encrypt and decrypt operations.<a href="#section-3.1-7" class="pilcrow">¶</a></p>
 <p id="section-3.1-8">
 Direct Encryption and Key Wrapping algorithms encode the primary symmetric key parameter (key length) in the algorithm identifier.
-Key Wrapping algorithms impose additional implict contraints on AAD and IV.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
+Key Wrapping algorithms impose additional implicit constraints on AAD and IV.<a href="#section-3.1-8" class="pilcrow">¶</a></p>
 <p id="section-3.1-9">
-In JOSE and COSE, all registered Direct Encryption and Key Wrapping algorithms are fully specified.<a href="#section-3.1-9" class="pilcrow">¶</a></p>
+In JOSE and COSE, all currently registered Direct Encryption and Key Wrapping algorithms are fully specified.<a href="#section-3.1-9" class="pilcrow">¶</a></p>
 <p id="section-3.1-10">
 Example of a decoded JWE Protected Header, for Direct Encryption:<a href="#section-3.1-10" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.1-11">
@@ -1553,40 +1593,38 @@ Example of a decoded JWE Protected Header, for Key Wrapping:<a href="#section-3.
 }
 </pre><a href="#section-3.1-13" class="pilcrow">¶</a>
 </div>
-<p id="section-3.1-14">
-TODO: COSE EDN example.<a href="#section-3.1-14" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="fully-specified-direct-encryption-algs">
 <section id="section-3.2">
-        <h3 id="name-key-establishment-and-direc">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-key-establishment-and-direc" class="section-name selfRef">Key Establishment and Direct Encryption</a>
+        <h3 id="name-key-establishment-with-dire">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-key-establishment-with-dire" class="section-name selfRef">Key Establishment with Direct Encryption</a>
         </h3>
 <p id="section-3.2-1">
-Key establishment and direct encryption algorithms generally satisfy the following interface:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+Key establishment with direct encryption algorithms generally satisfy the following interface:<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.2-2">
 <pre>
-secret_key, public_key = key_generation(algorithm_identifier)
+private_key, public_key = key_generation(algorithm_identifier)
 ciphertext = encrypt(plaintext, public_key)
-plaintext  = decrypt(ciphertext, secret_key)
+plaintext  = decrypt(ciphertext, private_key)
 </pre><a href="#section-3.2-2" class="pilcrow">¶</a>
 </div>
 <p id="section-3.2-3">
 Depending on the symmetric algorithm, additional parameters such as additional authenticated data (AAD) or initialization vector (IV) might be required.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.2-4">
-Although JOSE and COSE encode this type of encryption differently, both rely on a symmetric key derived from an assymetric key.
+Although JOSE and COSE encode this type of encryption differently, both rely on a symmetric key derived from an asymmetric key.
 An algorithm called a key derivation function (KDF) is applied between key establishment and symmetric encryption.<a href="#section-3.2-4" class="pilcrow">¶</a></p>
 <p id="section-3.2-5">
-Key establishment algorithms often rely on an assymetric cryptgraphic operation whereby a public and a private key are used to produce a shared secret, which can be combined with a KDF to produce a symmetric key.
+Key establishment algorithms often rely on an asymmetric cryptographic operation whereby a public and a private key are used to produce a shared secret, which can be combined with a KDF to produce a symmetric key.
 The process of producing a shared secret is key type specific, and is different for elliptic curves, RSA, and lattice based algorithms.<a href="#section-3.2-5" class="pilcrow">¶</a></p>
 <p id="section-3.2-6">
-Elliptic curve Diffie-Hellman (ECDH) is used to produce  a shared secret with elliptic curve based keys.<a href="#section-3.2-6" class="pilcrow">¶</a></p>
+Elliptic curve Diffie-Hellman (ECDH) is used to produce a shared secret with elliptic curve based keys as follows:<a href="#section-3.2-6" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.2-7">
 <pre>
-secret_key1, public_key1 = key_generation(algorithm_identifier)
-secret_key2, public_key2 = key_generation(algorithm_identifier)
-shared_secret = derive_shared_secret(public_key1, secret_key2)
-shared_secret = derive_shared_secret(public_key2, secret_key1)
+private_key1, public_key1 = key_generation(algorithm_identifier)
+private_key2, public_key2 = key_generation(algorithm_identifier)
+shared_secret = derive_shared_secret(public_key1, private_key2)
+shared_secret = derive_shared_secret(public_key2, private_key1)
 </pre><a href="#section-3.2-7" class="pilcrow">¶</a>
 </div>
 <p id="section-3.2-8">
@@ -1595,30 +1633,30 @@ An algorithm called a Key Encapsulation Mechanism, can be used to provide a comm
 Key encapsulation algorithms generally satisfy the following interface:<a href="#section-3.2-9" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.2-10">
 <pre>
-secret_key, public_key = key_generation(algorithm_identifier)
+private_key, public_key = key_generation(algorithm_identifier)
 ciphertext, shared_secret = encap(public_key)
-shared_secret = decap(ciphertext, secret_key)
+shared_secret = decap(ciphertext, private_key)
 </pre><a href="#section-3.2-10" class="pilcrow">¶</a>
 </div>
 <p id="section-3.2-11">
-When using Key Establishment and Direct Encryption, the ciphertext is not only the output of symmetric encryption, but also includes all parameters necessary for the recipient to decrypt the ciphertext.
-Encrypted content encryption keys are not produced by fully specified Key Establishment and Direct Encryption algorithms.<a href="#section-3.2-11" class="pilcrow">¶</a></p>
+When using Key Establishment with Direct Encryption, the ciphertext is not only the output of symmetric encryption, but also includes all parameters necessary for the recipient to decrypt the ciphertext.
+Encrypted content encryption keys are not produced by fully-specified Key Establishment with Direct Encryption algorithms.<a href="#section-3.2-11" class="pilcrow">¶</a></p>
 <p id="section-3.2-12">
 In JOSE, the KDF algorithm is "ConcatKDF" and is an implicit parameter of the key establishment algorithm.
 In JOSE and COSE, key establishment algorithms have historically been generic to a key type including all its mandatory parameters.
-For example "ECDH-ES" establishes a shared secret, and then through the use of a KDF, a content encryption key, for keys based on elliptic curves.
-However, the mandatory parameters of the public_key and secret_key need be the same in the context of the key type.<a href="#section-3.2-12" class="pilcrow">¶</a></p>
+For example, "ECDH-ES" establishes a shared secret, and then through the use of a KDF, a content encryption key, for keys based on elliptic curves.
+However, the mandatory parameters of the public_key and private_key need be the same in the context of the key type.<a href="#section-3.2-12" class="pilcrow">¶</a></p>
 <p id="section-3.2-13">
-For example when using ECDH-ES with secp256r1 (P-256) to establish a shared secret,
-the ECDH algorithm is a function of an ephemerial and a static key,
+For example, when using ECDH-ES with secp256r1 (P-256) to establish a shared secret,
+the ECDH algorithm is a function of an ephemeral and a static key,
 which need to be of the same key type, and having the same parameters, in this case, the curve parameter.<a href="#section-3.2-13" class="pilcrow">¶</a></p>
 <p id="section-3.2-14">
-In order to successfully encrypt to a recipient, a sender needs to posses the recipient's key (which contains the curve parameter) and know the recipients supported algorithms.<a href="#section-3.2-14" class="pilcrow">¶</a></p>
+To successfully encrypt to a recipient, a sender needs to possess the recipient's key (which contains the curve parameter) and know the recipients supported algorithms.<a href="#section-3.2-14" class="pilcrow">¶</a></p>
 <p id="section-3.2-15">
 In JOSE and COSE, key representations can support communicating the algorithm which a recipient supports for a given key.
 It is considered a best practice to only support 1 algorithm during the lifetime of a key.<a href="#section-3.2-15" class="pilcrow">¶</a></p>
 <p id="section-3.2-16">
-Example of a decoded JWE Protected Header, for Key Establishment and Direct Encryption:<a href="#section-3.2-16" class="pilcrow">¶</a></p>
+Example of a decoded JWE Protected Header, for Key Establishment with Direct Encryption:<a href="#section-3.2-16" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.2-17">
 <pre>
 {
@@ -1629,37 +1667,36 @@ Example of a decoded JWE Protected Header, for Key Establishment and Direct Encr
 </pre><a href="#section-3.2-17" class="pilcrow">¶</a>
 </div>
 <p id="section-3.2-18">
-TODO: COSE EDN example.<a href="#section-3.2-18" class="pilcrow">¶</a></p>
+Despite containing both the key establishment algorithm (with an implicit KDF) and the symmetric encryption algorithm, the example above is not fully specified.<a href="#section-3.2-18" class="pilcrow">¶</a></p>
 <p id="section-3.2-19">
-Despite containing both the key establishment algorithm (with an implicit KDF) and the symmetric encryption algorithm, the example above is not fully specified.<a href="#section-3.2-19" class="pilcrow">¶</a></p>
+To make a Key Establishment with Direct Encryption algorithm fully specified, all essential parameters need to be encoded in the algorithm identifier.
+In the context of the example above, the missing explicit parameters are curve name and KDF name.
+If the KDF requires additional parameters, they need to be present.<a href="#section-3.2-19" class="pilcrow">¶</a></p>
 <p id="section-3.2-20">
-In order to make a Key Establishment and Direct Encryption algorithm fully specified, all essential parameters need to be encoded in the algorithm identifier.
-In the context of the example above, the missing explict parameters are curve name, and KDF name.
-If the KDF requires additional parameters, they need to be present.<a href="#section-3.2-20" class="pilcrow">¶</a></p>
+To convey a fully-specified Key Establishment with Direct Encryption algorithm in JOSE, the "alg" value MUST be "dir",
+and the "enc" value MUST be fully specified, specifying all essential parameters for both key establishment and symmetric encryption.
+For example: "ECDH-ES-P256-CONCAT-KDF-A128GCM", "ECDH-ES-P384-CONCAT-KDF-A256GCM" or "ECDH-ES-X25519-CONCAT-KDF-A256GCM"<a href="#section-3.2-20" class="pilcrow">¶</a></p>
 <p id="section-3.2-21">
-To convey a fully specified Key Establishment and Direct Encryption algorithm in JOSE, the "alg" value MUST be "dir",
-and the "enc" value MUST be fully specified, and include all essential parameters for both key establishment and symmetric encryption.
-For example: "ECDH-ES-P256-CONCAT-KDF-A128GCM", "ECDH-ES-P384-CONCAT-KDF-A256GCM" or "ECDH-ES-X25519-CONCAT-KDF-A256GCM"<a href="#section-3.2-21" class="pilcrow">¶</a></p>
+To convey a fully-specified Key Establishment with Direct Encryption algorithm in COSE, the "alg" value MUST specify all essential parameters for both key establishment and symmetric encryption.
+For example: "ECDH-ES-P256-HKDF-SHA-256-A128GCM", "ECDH-ES-P384-HKDF-SHA-512-A256GCM" or "ECDH-ES-X25519-HKDF-SHA-512-A256GCM"<a href="#section-3.2-21" class="pilcrow">¶</a></p>
 <p id="section-3.2-22">
-To convey a fully specified Key Establishment and Direct Encryption algorithm in COSE, the "alg" value MUST include all essential parameters for both key establishment and symmetric encryption.
-For example: "ECDH-ES-P256-HKDF-SHA-256-A128GCM", "ECDH-ES-P384-HKDF-SHA-512-A256GCM" or "ECDH-ES-X25519-HKDF-SHA-512-A256GCM"<a href="#section-3.2-22" class="pilcrow">¶</a></p>
-<p id="section-3.2-23">
-Fully specified Key Establishment and Direct Encryption algorithms enable the sender and receiver to agree on all algorithms needed to encrypt and decrypt a message using a single algorithm identifier.<a href="#section-3.2-23" class="pilcrow">¶</a></p>
+Fully-specified Key Establishment with Direct Encryption algorithms enable the sender and receiver to agree on all algorithms needed to encrypt and decrypt a message using a single algorithm identifier.<a href="#section-3.2-22" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="fully-specified-key-wrapping-encryption-algs">
 <section id="section-3.3">
         <h3 id="name-two-layer-encryption">
-<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-two-layer-encryption" class="section-name selfRef">Two Layer Encryption</a>
+<a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-two-layer-encryption" class="section-name selfRef">Two-Layer Encryption</a>
         </h3>
 <p id="section-3.3-1">
-This section is confusing because it needs to address both JOSE and COSE which each offer multiple ways that a content encryption key can be produced and protected, then later used to decrypt or encrypt content.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+This section describes Two-Layer Encryption in both JOSE and COSE.
+Each defines multiple ways that a content encryption key can be produced and protected, then later used to decrypt or encrypt content.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">
-This specification uses the term "Two Layer Encryption" to refer to what JOSE describes as "Key Encryption" and "Key Agreement with Key Wrapping", and what COSE describes as "Key Transport" and "Key Agreement with Key Wrap".<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+This specification uses the term "Two-Layer Encryption" to refer to what JOSE describes as "Key Encryption" and "Key Agreement with Key Wrapping", and what COSE describes as "Key Transport" and "Key Agreement with Key Wrap".<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 <p id="section-3.3-3">
-A distinguishing characteristic of Two Layer Encryption schemes is that multiple recipients can perform decryptions, using a wide range of algorithms, and that encrypted content encryption keys are always present.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
+A distinguishing characteristic of Two-Layer Encryption schemes is that multiple recipients can perform decryptions, using a wide range of algorithms, and that encrypted content encryption keys are always present.<a href="#section-3.3-3" class="pilcrow">¶</a></p>
 <p id="section-3.3-4">
-In RSA-OAEP the encrypted content encryption key is generated through an assymetric cryptographic operation.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
+In RSA-OAEP the encrypted content encryption key is generated through an asymmetric cryptographic operation.<a href="#section-3.3-4" class="pilcrow">¶</a></p>
 <p id="section-3.3-5">
 When Key Wrapping without any key establishment is used, the content encryption key is encrypted using a symmetric cryptographic operation (key wrap).
 How the content encryption key was generated is out of scope when considering this scheme.<a href="#section-3.3-5" class="pilcrow">¶</a></p>
@@ -1678,16 +1715,16 @@ decrypt(encrypted_content_encryption_key, key_encryption_key)
 </pre><a href="#section-3.3-7" class="pilcrow">¶</a>
 </div>
 <p id="section-3.3-8">
-When Key Establishment with Key Wrapping is used, the content encryption key is protected with Key Wrapping, where the Key Encryption Key is derived from an assymetric cryptographic operation and a key derivation function.<a href="#section-3.3-8" class="pilcrow">¶</a></p>
+When Key Establishment with Key Wrapping is used, the content encryption key is protected with Key Wrapping, where the Key Encryption Key is derived from an asymmetric cryptographic operation and a key derivation function.<a href="#section-3.3-8" class="pilcrow">¶</a></p>
 <p id="section-3.3-9">
 Key Establishment with Key Wrapping algorithms generally satisfy the following interface:<a href="#section-3.3-9" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.3-10">
 <pre>
-secret_key, public_key = key_generation(algorithm_identifier)
-# ignoring ephemeral static vs static static, etc...
+private_key, public_key = key_generation(algorithm_identifier)
+# ignoring ephemeral static vs. static static, etc.
 
 key_encryption_key = \
-key_establishment(public_key, secret_key)
+key_establishment(public_key, private_key)
 
 encrypted_content_encryption_key = \
 encrypt(content_encryption_key, key_encryption_key)
@@ -1697,11 +1734,11 @@ decrypt(encrypted_content_encryption_key, key_encryption_key)
 </pre><a href="#section-3.3-10" class="pilcrow">¶</a>
 </div>
 <p id="section-3.3-11">
-The interface above is consistent with the Section on Key Establishment and Direct Encryption,
-specifically the description of how the process of deriving a shared secret and content encryption key is specific to the assymetric key type used.
-The difference is that instead of using the derived content encryption key directly, Two Layer encryption always derives a key encryption key, and wraps the content encryption key.<a href="#section-3.3-11" class="pilcrow">¶</a></p>
+The interface above is consistent with the Section on Key Establishment with Direct Encryption,
+specifically the description of how the process of deriving a shared secret and content encryption key is specific to the asymmetric key type used.
+The difference is that instead of using the derived content encryption key directly, Two-Layer encryption always derives a key encryption key, and wraps the content encryption key.<a href="#section-3.3-11" class="pilcrow">¶</a></p>
 <p id="section-3.3-12">
-Regardless of how a Two Layer Encryption scheme protects a content encryption key, content encryption algorithms generally satisfy the following interface:<a href="#section-3.3-12" class="pilcrow">¶</a></p>
+Regardless of how a Two-Layer Encryption scheme protects a content encryption key, content encryption algorithms generally satisfy the following interface:<a href="#section-3.3-12" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.3-13">
 <pre>
 content_encryption_key = \
@@ -1714,15 +1751,15 @@ plaintext  = decrypt(ciphertext, content_encryption_key)
 <p id="section-3.3-14">
 Depending on the content encryption algorithm, additional parameters such as additional authenticated data (AAD) or initialization vector (IV) might be required.<a href="#section-3.3-14" class="pilcrow">¶</a></p>
 <p id="section-3.3-15">
-Although JOSE and COSE encode Two Layer Encryptions differently, both rely on an encrypted content encryption key.
+Although JOSE and COSE encode Two-Layer Encryptions differently, both rely on an encrypted content encryption key.
 The content encryption key is encrypted either using Key Wrapping directly, or through Key Establishment and then Key Wrapping or Key Transport or Key Encryption.
 When Key Establishment is used, a KDF is usually applied during the production of the key encryption key,
 to ensure that the content encryption algorithm that will be used with the encrypted content encryption key is known and agreed to by both sender and recipient.<a href="#section-3.3-15" class="pilcrow">¶</a></p>
 <p id="section-3.3-16">
-When using Two Layer Encryption, the ciphertext is not only the output of symmetric encryption, but also includes all parameters necessary for the recipient to decrypt the ciphertext,
+When using Two-Layer Encryption, the ciphertext is not only the output of symmetric encryption, but also includes all parameters necessary for the recipient to decrypt the ciphertext,
 including parameters for use with the key establishment algorithm, such as ephemeral or encapsulated keys, any required key derivation functions and their parameters and the key wrapping algorithm.
-Encrypted content encryption keys are always present in when Two Layer Encryption algorithms are used.
-Two Layer Encryption is often used for encrypting the same plaintext to multiple recipients, in contrast with other modes which can only be used to encrypt to a single recipient.<a href="#section-3.3-16" class="pilcrow">¶</a></p>
+Encrypted content encryption keys are always present when Two-Layer Encryption algorithms are used.
+Two-Layer Encryption is often used for encrypting the same plaintext to multiple recipients, in contrast with other modes which can only be used to encrypt to a single recipient.<a href="#section-3.3-16" class="pilcrow">¶</a></p>
 <p id="section-3.3-17">
 Example of a decoded JWE Protected Header, for Key Encryption using RSA-OAEP with AES-GCM:<a href="#section-3.3-17" class="pilcrow">¶</a></p>
 <div class="sourcecode" id="section-3.3-18">
@@ -1746,24 +1783,24 @@ Example of a decoded JWE Protected Header, for Key Encryption using ECDH-ES and 
 </pre><a href="#section-3.3-20" class="pilcrow">¶</a>
 </div>
 <p id="section-3.3-21">
-Despite containing both the key establishment algorithm, with either an implict KDF, or a Key Transport algorithm and a symmetric encryption algorithm, the examples above are not fully specified.<a href="#section-3.3-21" class="pilcrow">¶</a></p>
+Despite containing both the key establishment algorithm, with either an implicit KDF, or a Key Transport algorithm and a symmetric encryption algorithm, the examples above are not fully specified.<a href="#section-3.3-21" class="pilcrow">¶</a></p>
 <p id="section-3.3-22">
-In order to make a Two Layer Encryption algorithm fully specified, all security relevant details need to be encoded in the algorithm identifier.
-In the context of the examples above, the missing explict parameters are curve name, kdf and required parameters, and content encryption algorithm to use with the decrypted content encryption key.<a href="#section-3.3-22" class="pilcrow">¶</a></p>
+To make a Two-Layer Encryption algorithm fully specified, all security relevant details need to be encoded in the algorithm identifier.
+In the context of the examples above, the missing explicit parameters are curve name, kdf and required parameters, and content encryption algorithm to use with the decrypted content encryption key.<a href="#section-3.3-22" class="pilcrow">¶</a></p>
 <p id="section-3.3-23">
-To convey a fully specified Two Layer Encryption in JOSE, the "alg" MUST include all essential parameters for key establishment, key wrapping and symmetric encryption.
+To convey a fully-specified Two-Layer Encryption in JOSE, the "alg" MUST specify all essential parameters for key establishment, key wrapping, and symmetric encryption.
 For example: "ECDH-ES-P256-CONCAT-KDF-A128KW-A128GCM", "ECDH-ES-P384-CONCAT-KDF-A256KW-A256GCM", "RSA-OAEP-256-4096-A128GCM" or "ECDH-ES-X25519-CONCAT-KDF-A256KW-A256GCM"<a href="#section-3.3-23" class="pilcrow">¶</a></p>
 <p id="section-3.3-24">
-To convey a fully specified Two Layer Encryption algorithm in COSE, the "alg" value MUST include all essential parameters for key establishment, key wrapping and symmetric encryption.
+To convey a fully-specified Two-Layer Encryption algorithm in COSE, the "alg" value MUST specify all essential parameters for key establishment, key wrapping, and symmetric encryption.
 For example: "ECDH-ES-P256-HKDF-SHA-256-A128KW-A128GCM", "ECDH-ES-P384-HKDF-SHA-512-A256KW-A256GCM" or "ECDH-ES-X25519-HKDF-SHA-512-A256KW-A256GCM"<a href="#section-3.3-24" class="pilcrow">¶</a></p>
 <p id="section-3.3-25">
 The symmetric encryption algorithm that will be used with the content encryption key after it is decrypted is required to prevent cross mode attacks, such as those described in RFC9459.<a href="#section-3.3-25" class="pilcrow">¶</a></p>
 <p id="section-3.3-26">
-Fully specified Two Layer Encryption algorithms enable the sender and receiver to agree on all mandatory security parameters using a single algorithm identifier.
+Fully-specified Two-Layer Encryption algorithms enable the sender and receiver to agree on all mandatory security parameters using a single algorithm identifier.
 They also enable a protocol to specify an allow list of algorithm combinations that does not include polymorphic combinations,
 such as cross curve key establishment,
 cross mode symmetric encryption,
-or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" class="pilcrow">¶</a></p>
+or mismatched KDF size to symmetric key scenarios.<a href="#section-3.3-26" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1976,15 +2013,15 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
 <ul class="compact">
 <li class="compact" id="section-4.2.1-7.1">
               <p id="section-4.2.1-7.1.1">
- Name: Ed25519<a href="#section-4.2.1-7.1.1" class="pilcrow">¶</a></p>
+ Name: ESB256<a href="#section-4.2.1-7.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.2">
               <p id="section-4.2.1-7.2.1">
- Value: TBD (requested assignment -50)<a href="#section-4.2.1-7.2.1" class="pilcrow">¶</a></p>
+ Value: TBD (requested assignment -261)<a href="#section-4.2.1-7.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.3">
               <p id="section-4.2.1-7.3.1">
- Description: EdDSA using Ed25519 curve<a href="#section-4.2.1-7.3.1" class="pilcrow">¶</a></p>
+ Description: ECDSA using BrainpoolP256r1 curve and SHA-256<a href="#section-4.2.1-7.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-7.4">
               <p id="section-4.2.1-7.4.1">
@@ -1992,22 +2029,22 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
 </li>
             <li class="compact" id="section-4.2.1-7.5">
               <p id="section-4.2.1-7.5.1">
- Recommended: Yes<a href="#section-4.2.1-7.5.1" class="pilcrow">¶</a></p>
+ Recommended: No<a href="#section-4.2.1-7.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-4.2.1-8"></p>
 <ul class="compact">
 <li class="compact" id="section-4.2.1-9.1">
               <p id="section-4.2.1-9.1.1">
- Name: Ed448<a href="#section-4.2.1-9.1.1" class="pilcrow">¶</a></p>
+ Name: ESB320<a href="#section-4.2.1-9.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.2">
               <p id="section-4.2.1-9.2.1">
- Value: TBD (requested assignment -51)<a href="#section-4.2.1-9.2.1" class="pilcrow">¶</a></p>
+ Value: TBD (requested assignment -262)<a href="#section-4.2.1-9.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.3">
               <p id="section-4.2.1-9.3.1">
- Description: EdDSA using Ed448 curve<a href="#section-4.2.1-9.3.1" class="pilcrow">¶</a></p>
+ Description: ECDSA using BrainpoolP320r1 curve and SHA-384<a href="#section-4.2.1-9.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="compact" id="section-4.2.1-9.4">
               <p id="section-4.2.1-9.4.1">
@@ -2015,7 +2052,99 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
 </li>
             <li class="compact" id="section-4.2.1-9.5">
               <p id="section-4.2.1-9.5.1">
- Recommended: Yes<a href="#section-4.2.1-9.5.1" class="pilcrow">¶</a></p>
+ Recommended: No<a href="#section-4.2.1-9.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-10"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-11.1">
+              <p id="section-4.2.1-11.1.1">
+ Name: ESB384<a href="#section-4.2.1-11.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.2">
+              <p id="section-4.2.1-11.2.1">
+ Value: TBD (requested assignment -263)<a href="#section-4.2.1-11.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.3">
+              <p id="section-4.2.1-11.3.1">
+ Description: ECDSA using BrainpoolP384r1 curve and SHA-384<a href="#section-4.2.1-11.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.4">
+              <p id="section-4.2.1-11.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-11.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-11.5">
+              <p id="section-4.2.1-11.5.1">
+ Recommended: No<a href="#section-4.2.1-11.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-12"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-13.1">
+              <p id="section-4.2.1-13.1.1">
+ Name: ESB512<a href="#section-4.2.1-13.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.2">
+              <p id="section-4.2.1-13.2.1">
+ Value: TBD (requested assignment -264)<a href="#section-4.2.1-13.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.3">
+              <p id="section-4.2.1-13.3.1">
+ Description: ECDSA using BrainpoolP512r1 curve and SHA-512<a href="#section-4.2.1-13.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.4">
+              <p id="section-4.2.1-13.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-13.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-13.5">
+              <p id="section-4.2.1-13.5.1">
+ Recommended: No<a href="#section-4.2.1-13.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-14"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-15.1">
+              <p id="section-4.2.1-15.1.1">
+ Name: Ed25519<a href="#section-4.2.1-15.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.2">
+              <p id="section-4.2.1-15.2.1">
+ Value: TBD (requested assignment -50)<a href="#section-4.2.1-15.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.3">
+              <p id="section-4.2.1-15.3.1">
+ Description: EdDSA using Ed25519 curve<a href="#section-4.2.1-15.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.4">
+              <p id="section-4.2.1-15.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-15.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-15.5">
+              <p id="section-4.2.1-15.5.1">
+ Recommended: Yes<a href="#section-4.2.1-15.5.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-4.2.1-16"></p>
+<ul class="compact">
+<li class="compact" id="section-4.2.1-17.1">
+              <p id="section-4.2.1-17.1.1">
+ Name: Ed448<a href="#section-4.2.1-17.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.2">
+              <p id="section-4.2.1-17.2.1">
+ Value: TBD (requested assignment -51)<a href="#section-4.2.1-17.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.3">
+              <p id="section-4.2.1-17.3.1">
+ Description: EdDSA using Ed448 curve<a href="#section-4.2.1-17.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.4">
+              <p id="section-4.2.1-17.4.1">
+ Reference: <a href="#EdDSA" class="auto internal xref">Section 2.2</a> of this document<a href="#section-4.2.1-17.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="compact" id="section-4.2.1-17.5">
+              <p id="section-4.2.1-17.5.1">
+ Recommended: Yes<a href="#section-4.2.1-17.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2239,7 +2368,7 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
    For instance, they can use both 2048- and 4096-bit keys.
    The same is true of the <code>PS*</code> algorithms.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
 <p id="section-7.1-2">
-   This is not a problem in practice, because RSA libraries accomodate
+   This is not a problem in practice, because RSA libraries accommodate
    keys of different sizes without having to use different code.
    Therefore, for example, there are not known cases in the wild where it would be useful
    to have different algorithm identifiers for RSASSA-PKCS1-v1_5 with SHA-256 and 2048-bit keys
@@ -2258,7 +2387,7 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
    should be considered fully-specified or not,
    because it can use ephemeral keys of different key types and algorithms.
    Indeed, an implementation might work when <code>ECDH-ES</code>
-   is used with a ephemeral keys using the <code>P-256</code> curve,
+   is used with ephemeral keys using the <code>P-256</code> curve,
    and not work when used with ephemeral keys using the
    <code>Ed25519</code> curve.<a href="#section-7.2-1" class="pilcrow">¶</a></p>
 <p id="section-7.2-2">
@@ -2366,77 +2495,383 @@ or mismatched kdf size to symmetric key scenarios.<a href="#section-3.3-26" clas
 </dl>
 </section>
 </section>
-<div id="History">
+<div id="PolymorphicECDH">
 <section id="appendix-A">
-      <h2 id="name-document-history">
-<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
+      <h2 id="name-inventory-of-polymorphic-ec">
+<a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-inventory-of-polymorphic-ec" class="section-name selfRef">Inventory of Polymorphic ECDH Algorithms</a>
       </h2>
 <p id="appendix-A-1">
-        [[ to be removed by the RFC Editor before publication as an RFC ]]<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+ The working group assembled the following inventory of registered polymorphic
+ Elliptic Curve Diffie Helman (ECDH) JOSE and COSE algorithms
+ with the goal of understanding what
+ registering fully-specified ECDH algorithms to replace them would entail.
+ While there was not an appetite in the working group
+ to register the full set of replacement algorithms at this time,
+ this inventory documents how to do so,
+ should others wish to register some or all of the replacements in the future.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <p id="appendix-A-2">
-        -03 - TBD<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+ Nonetheless, because working group members did document that
+ not having fully-specified algorithms is a problem for some use cases,
+ The engineering compromise employed in this specification is
+ to register a single fully-specified ECDH algorithm of each kind
+ so that it becomes possible to rely only on fully-specified ECDH algorithms
+ for JOSE and COSE.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
+<div id="polymorphic-ECDH-jose">
+<section id="appendix-A.1">
+        <h3 id="name-polymorphic-ecdh-jose-algor">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-polymorphic-ecdh-jose-algor" class="section-name selfRef">Polymorphic ECDH JOSE Algorithms</a>
+        </h3>
+<p id="appendix-A.1-1">
+   These registered JOSE algorithms are polymorphic,
+   because they do not include the algorithm to be used for the ephemeral key:<a href="#appendix-A.1-1" class="pilcrow">¶</a></p>
+<span id="name-polymorphic-ecdh-jose-algori"></span><div id="poly-ecdh-jose">
+<table class="center" id="table-3">
+          <caption>
+<a href="#table-3" class="selfRef">Table 3</a>:
+<a href="#name-polymorphic-ecdh-jose-algori" class="selfRef">Polymorphic ECDH JOSE Algorithms</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES+A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and "A128KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES+A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and "A192KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES+A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and "A256KW" wrapping</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+<p id="appendix-A.1-3">
+   Fully-specified JOSE versions of these algorithms
+   using combinations that make sense, as discussed by the working group,
+   would be:<a href="#appendix-A.1-3" class="pilcrow">¶</a></p>
+<span id="name-fully-specified-ecdh-jose-a"></span><div id="full-ecdh-jose">
+<table class="center" id="table-4">
+          <caption>
+<a href="#table-4" class="selfRef">Table 4</a>:
+<a href="#name-fully-specified-ecdh-jose-a" class="selfRef">Fully-Specified ECDH JOSE Algorithms</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-256</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-384</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-384</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-521</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-521</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X25519</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and X25519</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X448</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and X448</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-256+A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-256 and "A128KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X25519+A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and X25519 and "A128KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-384+A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-384 and "A192KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-521+A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and P-521 and "A256KW" wrapping</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X448+A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES using Concat KDF and X448 and "A256KW" wrapping</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+<div id="polymorphic-ECDH-cose">
+<section id="appendix-A.2">
+        <h3 id="name-polymorphic-ecdh-cose-algor">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-polymorphic-ecdh-cose-algor" class="section-name selfRef">Polymorphic ECDH COSE Algorithms</a>
+        </h3>
+<p id="appendix-A.2-1">
+   These registered COSE algorithms are likewise polymorphic,
+   because they do not include the algorithm to be used with
+   the ephemeral key or the static key:<a href="#appendix-A.2-1" class="pilcrow">¶</a></p>
+<span id="name-polymorphic-ecdh-cose-algori"></span><div id="poly-ecdh-cose">
+<table class="center" id="table-5">
+          <caption>
+<a href="#table-5" class="selfRef">Table 5</a>:
+<a href="#name-polymorphic-ecdh-cose-algori" class="selfRef">Polymorphic ECDH COSE Algorithms</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES + A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES w/ HKDF and AES Key Wrap w/ 192-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS + A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS w/ HKDF and AES Key Wrap w/ 192-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+<p id="appendix-A.2-3">
+   Fully-specified COSE versions of these algorithms
+   using combinations that make sense, as discussed by the working group,
+   would be:<a href="#appendix-A.2-3" class="pilcrow">¶</a></p>
+<span id="name-fully-specified-ecdh-cose-a"></span><div id="full-ecdh-cose">
+<table class="center" id="table-6">
+          <caption>
+<a href="#table-6" class="selfRef">Table 6</a>:
+<a href="#name-fully-specified-ecdh-cose-a" class="selfRef">Fully-Specified ECDH COSE Algorithms</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Name</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-256 + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using P-256 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X25519 + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using X25519 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-521 + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using P-521 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X448 + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using X448 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-P-256 + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using P-256 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-X25519 + HKDF-256</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using X25519 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-P-521 + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using P-521 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-X448 + HKDF-512</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using X448 w/ HKDF -- generate key directly</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-256 + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using P-256 w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X25519 + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using X25519 w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-384 + A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using P-384 w/ HKDF and AES Key Wrap w/ 192-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-P-521 + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using P-521 w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-ES-X448 + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH ES using X448 w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-P-256 + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using P-256 w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-X25519 + A128KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using X25519 w/ HKDF and AES Key Wrap w/ 128-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-P-384 + A192KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using P-384 w/ HKDF and AES Key Wrap w/ 192-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-P-521 + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using P-521 w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">ECDH-SS-X448 + A256KW</td>
+              <td class="text-left" rowspan="1" colspan="1">ECDH SS using X448 w/ HKDF and AES Key Wrap w/ 256-bit key</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="History">
+<section id="appendix-B">
+      <h2 id="name-document-history">
+<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
+      </h2>
+<p id="appendix-B-1">
+        [[ to be removed by the RFC Editor before publication as an RFC ]]<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">
+        -03<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-A-3.1">
-          <p id="appendix-A-3.1.1">
-     Address security considerations feedback from WGLC.<a href="#appendix-A-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-3.1">
+          <p id="appendix-B-3.1.1">
+     Acknowledged contributions made during Working Group Last Call.<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.2">
+          <p id="appendix-B-3.2.1">
+     Addressed security considerations feedback from WGLC.<a href="#appendix-B-3.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.3">
+          <p id="appendix-B-3.3.1">
+     Made COSE Recommended status for Ed25519 and Ed448 "yes".<a href="#appendix-B-3.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="appendix-B-3.4">
+          <p id="appendix-B-3.4.1">
+     Registered COSE algorithms for using Brainpool curves with ECDSA.<a href="#appendix-B-3.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-A-4">
-        -02<a href="#appendix-A-4" class="pilcrow">¶</a></p>
+<p id="appendix-B-4">
+        -02<a href="#appendix-B-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-A-5.1">
-          <p id="appendix-A-5.1.1">
-     Expanded references for KEMs.<a href="#appendix-A-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-5.1">
+          <p id="appendix-B-5.1.1">
+     Expanded references for KEMs.<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-A-5.2">
-          <p id="appendix-A-5.2.1">
-     Added example of a fully-specified KEM.<a href="#appendix-A-5.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="appendix-B-5.2">
+          <p id="appendix-B-5.2.1">
+     Added example of a fully-specified KEM.<a href="#appendix-B-5.2.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-A-6">
-        -01<a href="#appendix-A-6" class="pilcrow">¶</a></p>
+<p id="appendix-B-6">
+        -01<a href="#appendix-B-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-A-7.1">
-          <p id="appendix-A-7.1.1">
-     Included additional instructions for IANA.<a href="#appendix-A-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-7.1">
+          <p id="appendix-B-7.1.1">
+     Included additional instructions for IANA.<a href="#appendix-B-7.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-A-7.2">
-          <p id="appendix-A-7.2.1">
-     Added text on KEMs and Encapsulated keys.<a href="#appendix-A-7.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="appendix-B-7.2">
+          <p id="appendix-B-7.2.1">
+     Added text on KEMs and Encapsulated keys.<a href="#appendix-B-7.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="appendix-A-7.3">
-          <p id="appendix-A-7.3.1">
-     Added the section Fully-Specified Computations Using Multiple Algorithms.<a href="#appendix-A-7.3.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="appendix-B-7.3">
+          <p id="appendix-B-7.3.1">
+     Added the section Fully-Specified Computations Using Multiple Algorithms.<a href="#appendix-B-7.3.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="appendix-A-8">
-        -00<a href="#appendix-A-8" class="pilcrow">¶</a></p>
+<p id="appendix-B-8">
+        -00<a href="#appendix-B-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-A-9.1">
-          <p id="appendix-A-9.1.1">
-     Created initial working group version based on draft-jones-jose-fully-specified-algorithms-02.<a href="#appendix-A-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-9.1">
+          <p id="appendix-B-9.1.1">
+     Created initial working group version based on draft-jones-jose-fully-specified-algorithms-02.<a href="#appendix-B-9.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
 </div>
 <div id="Acknowledgements">
-<section id="appendix-B">
+<section id="appendix-C">
       <h2 id="name-acknowledgements">
 <a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="appendix-B-1">
+<p id="appendix-C-1">
  The authors thank
+ Carsten Bormann,
  John Bradley,
+ Tim Bray,
  Brian Campbell,
- Ilari Liusvarra,
+ Stephen Farrell,
+ Ilari Liusvaara,
  Tobias Looker,
+ Neil Madden,
+ John Mattsson,
+ Jeremy O'Donoghue,
+ Anders Rundgren,
+ Göran Selander,
+ Filip Skokan,
+ Oliver Terbu,
  and
- Filip Skokan
- for their contributions to this specification.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+ David Waite
+ for their contributions to this specification.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-C">
+<section id="appendix-D">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
