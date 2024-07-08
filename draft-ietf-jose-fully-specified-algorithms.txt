@@ -4,7 +4,7 @@
 
 JOSE Working Group                                            M.B. Jones
 Internet-Draft                                    Self-Issued Consulting
-Updates: 7518, 8037, 9053 (if approved)                        O. Steele
+Updates: 7518, 8037, 8152, 9053 (if approved)                  O. Steele
 Intended status: Standards Track                               Transmute
 Expires: 8 January 2025                                      7 July 2024
 
@@ -81,6 +81,7 @@ Table of Contents
      4.3.  Updated Review Instructions for Designated Experts
        4.3.1.  JSON Web Signature and Encryption Algorithms
        4.3.2.  COSE Algorithms
+     4.4.  Defining Deprecated and Prohibited
    5.  Key Representations
    6.  Notes on Algorithms Not Updated
      6.1.  Algorithms for Signing with RSASSA-PKCS1-v1_5
@@ -97,9 +98,8 @@ Table of Contents
 
 1.  Introduction
 
-   The IANA algorithm registries for JOSE [IANA.JOSE.Algorithms] and
-   COSE [IANA.COSE.Algorithms] contain two kinds of algorithm
-   identifiers:
+   The IANA algorithm registries for JOSE [IANA.JOSE] and COSE
+   [IANA.COSE] contain two kinds of algorithm identifiers:
 
    Fully Specified
       Those that fully determine the cryptographic operations to be
@@ -678,8 +678,8 @@ Table of Contents
 4.1.  JOSE Algorithms Registrations
 
    This section registers the following values in the IANA "JSON Web
-   Signature and Encryption Algorithms" registry [IANA.JOSE.Algorithms]
-   established by [RFC7515].
+   Signature and Encryption Algorithms" registry [IANA.JOSE] established
+   by [RFC7515].
 
 4.1.1.  Fully-Specified JOSE Algorithm Registrations
 
@@ -735,7 +735,7 @@ Table of Contents
 4.2.  COSE Algorithms Registrations
 
    This section registers the following values in the IANA "COSE
-   Algorithms" registry [IANA.COSE.Algorithms].
+   Algorithms" registry [IANA.COSE].
 
 4.2.1.  Fully-Specified COSE Algorithm Registrations
 
@@ -871,9 +871,9 @@ Table of Contents
    to add a reference to this section of this specification.
 
    The review instructions for the designated experts for the IANA "JSON
-   Web Signature and Encryption Algorithms" registry
-   [IANA.JOSE.Algorithms] in Section 7.1 of [RFC7518] have been updated
-   to include an additional review criterion:
+   Web Signature and Encryption Algorithms" registry [IANA.JOSE] in
+   Section 7.1 of [RFC7518] have been updated to include an additional
+   review criterion:
 
    *  Only fully-specified algorithm identifiers may be registered.
       Polymorphic algorithm identifiers must not be registered.
@@ -885,12 +885,52 @@ Table of Contents
    specification.
 
    The review instructions for the designated experts for the IANA "COSE
-   Algorithms" registry [IANA.COSE.Algorithms] in Section 10.4 of
-   [RFC9053] have been updated to include an additional review
-   criterion:
+   Algorithms" registry [IANA.COSE] in Section 10.4 of [RFC9053] have
+   been updated to include an additional review criterion:
 
    *  Only fully-specified algorithm identifiers may be registered.
       Polymorphic algorithm identifiers must not be registered.
+
+4.4.  Defining Deprecated and Prohibited
+
+   The terms "Deprecated" and "Prohibited" as used by JOSE and COSE
+   registrations are currently undefined.  Furthermore, while in
+   [RFC7518] JOSE specifies that both "Deprecated" and "Prohibited" can
+   be used, in [RFC8152] COSE specifies the use of "Deprecated" but not
+   "Prohibited".  (Note that [RFC9053] did not carry the definitions of
+   the "Recommended" registry columns forward, so [RFC8152] remains
+   definitive in this regard.)  This section defines these terms for use
+   by both JOSE and COSE IANA registrations in a consistent manner,
+   eliminating this potentially confusing inconsistency.
+
+   For purposes of use in the "JOSE Implementation Requirements" columns
+   in the IANA JOSE registries [IANA.JOSE] and in the "Recommended"
+   columns in the IANA COSE registries [IANA.COSE], these terms are
+   defined as follows:
+
+   Deprecated
+      There is a preferred mechanism to achieve similar functionality to
+      that referenced by the identifier; this replacement functionality
+      SHOULD be utilized in new deployments in preference to the
+      deprecated identifier.
+
+   Prohibited
+      The identifier and the functionality that it references MUST NOT
+      be used.  (Identifiers MAY be designated as "Prohibited" due to
+      security flaws, for instance.)
+
+   Note that the terms "Deprecated" and "Prohibited" have been used with
+   a multiplicity of different meanings in various specifications,
+   sometimes without actually being defined in those specifications.
+   For instance, the term "Deprecated" is used in the title of
+   [RFC8996], but the actual specification text uses the terminology
+   "MUST NOT be used".
+
+   The definitions above were chosen because they are consistent with
+   all existing registrations in both JOSE and COSE; none will need to
+   change.  Furthermore, they are consistent with their existing usage
+   in JOSE.  The only net change is to enable a clear distinction
+   between "Deprecated" and "Prohibited" in future COSE registrations.
 
 5.  Key Representations
 
@@ -983,15 +1023,13 @@ Table of Contents
               fido-client-to-authenticator-protocol-v2.1-ps-
               20210615.html>.
 
-   [IANA.COSE.Algorithms]
-              IANA, "COSE Algorithms",
-              <https://www.iana.org/assignments/cose/
-              cose.xhtml#algorithms>.
+   [IANA.COSE]
+              IANA, "CBOR Object Signing and Encryption (COSE)",
+              <https://www.iana.org/assignments/cose/>.
 
-   [IANA.JOSE.Algorithms]
-              IANA, "JOSE Algorithms",
-              <https://www.iana.org/assignments/jose/jose.xhtml#web-
-              signature-encryption-algorithms>.
+   [IANA.JOSE]
+              IANA, "JSON Object Signing and Encryption (JOSE)",
+              <https://www.iana.org/assignments/jose/>.
 
    [OpenID.Discovery]
               Sakimura, N., Bradley, J., Jones, M.B., and E. Jay,
@@ -1008,10 +1046,18 @@ Table of Contents
               DOI 10.17487/RFC8032, January 2017,
               <https://www.rfc-editor.org/info/rfc8032>.
 
+   [RFC8152]  Schaad, J., "CBOR Object Signing and Encryption (COSE)",
+              RFC 8152, DOI 10.17487/RFC8152, July 2017,
+              <https://www.rfc-editor.org/info/rfc8152>.
+
    [RFC8414]  Jones, M., Sakimura, N., and J. Bradley, "OAuth 2.0
               Authorization Server Metadata", RFC 8414,
               DOI 10.17487/RFC8414, June 2018,
               <https://www.rfc-editor.org/info/rfc8414>.
+
+   [RFC8996]  Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
+              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
+              <https://www.rfc-editor.org/info/rfc8996>.
 
    [WebAuthn] Hodges, J., Jones, J.C., Jones, M., Kumar, A., and E.
               Lundberg, "Web Authentication: An API for accessing Public
@@ -1207,7 +1253,13 @@ Appendix B.  Document History
 
    *  Registered COSE algorithms for using Brainpool curves with ECDSA.
 
+   *  Removed text on KEMs, since currently registered algorithms don't
+      use them.
+
    *  Enabled use of fully-specified ECDH algorithms.
+
+   *  Defined the terms "Deprecated" and "Prohibited" for both JOSE and
+      COSE registrations.
 
    -02
 
